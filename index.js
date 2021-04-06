@@ -9,8 +9,12 @@ const express = require('express');
 
 //import library for connecting to the database
 const database = require('./utils/services/database');
+//import the library that builds the database
+const databaseBuilder = require('./database/WTO_DB_BUILDER');
+
 database.connectToDatabase().then(
     () => {
+        //databaseBuilder.createDatabase();
         console.log('connected to database');
     },
     (err) => { console.log(err.message)}
