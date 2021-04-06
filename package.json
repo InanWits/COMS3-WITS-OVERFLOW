@@ -12,6 +12,11 @@
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "dotenv": "^8.2.0"
+  },
   "bugs": {
     "url": "https://github.com/InanWits/COMS3-WITS-OVERFLOW/issues"
   },
