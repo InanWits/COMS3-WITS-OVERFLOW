@@ -7,6 +7,15 @@ dotenv.config();
 const http = require('http');
 const express = require('express');
 
+//import library for connecting to the database
+const database = require('./utils/services/database');
+database.connectToDatabase().then(
+    () => {
+        console.log('connected to database');
+    },
+    (err) => { console.log(err.message)}
+    );
+
 //setup server
 const app = express();
 
