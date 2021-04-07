@@ -8,3 +8,6 @@ cache:
 
 notification:
   email: false
+
+after_success:
+  - ./node_modules/.bin/codecov --token="13ced673-3e19-42ec-bc41-7ce35816e908"
