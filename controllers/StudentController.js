@@ -2,7 +2,7 @@ const studentModel = require('../models/StudentModel');
 
 const studentConstants = require('../utils/constants/StudentConstants');
 
-const responseHandler = require('../utils/services/ResponseHandler_old');
+const responseHandler = require('../utils/services/ResponseHandler');
 
 const express = require('express');
 
