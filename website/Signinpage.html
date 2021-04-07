@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <link href="newcss.css" rel="stylesheet" type="text/css"/>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+          
+    <div class="wrapper">
+      <div class="title">Wits Overflow</div>
+      <form method="POST" action=""> <!-- please put the page name for homepage-->
+        <div class="field">
+            <input type="email" name="email" required>
+          <label>Email Address</label>
+        </div>
+        <div class="field">
+          <input type="password" name="pass" required>
+          <label>Password</label>
+        </div><br>
+        
+<!--<div class="content">
+          <div class="checkbox">
+            <input type="checkbox" id="remember-me">
+            <label for="remember-me">Remember me</label>
+          </div>
+<div class="pass-link">
+<a href="#">Forgot password?</a></div>
+</div>-->
+<div class="field">
+          <input type="submit" value="Sign In">
+        </div>
+<div class="signup-link">
+<a href="Signuppage.php">Sign Up Instead</a></div>
+</form>
+</div>
+      
+      <!-- <?php
+        class Student {
+            public $email;
+            public $password;
+            
+            public function __construct($e, $p) {
+                $this->email = $e;
+                $this->password = $p;
+            }
+            
+           /* function setData($a, $b){
+                setEmail($a);
+                setPass($b);
+                echo $a + $b;
+            }
+            function setEmail($p){
+                $p->$email;
+            }
+            function setPass($n){
+                $n->$password;
+            }*/
+        }
+        if(isset($_POST['submit'])){
+            $student = new Student($_POST['email'], sha1($_POST['pass']));
+        
+        }
+        /*$student->setData($_POST['name'], $_POST['pass'])*/
+        /*$email = $_GET['email'];*/
+        pre_r($_POST);
+            /*echo "<h3> Hello $name </h3>";*/
+    ?>
+      
+    <?php /*use this for the display*/
+      function pre_r($array){
+          echo'<pre>';
+          print_r($array);
+          echo'</pre>';
+      }
+    ?>-->
+      
+</body>
+</html>
