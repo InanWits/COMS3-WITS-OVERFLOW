@@ -6,8 +6,10 @@ dotenv.config();
 //imported libraries to create server
 const http = require('http');
 const express = require('express');
-
-//setup server
+const dbBuilder = require('./database/WitsOverFlow_DB_Builder');
+const db = require('./utils/services/database');
+db.connectToDb();
+//create an instance for express or setting up the server.
 const app = express();
 
 //config server to allow json as request inputs
