@@ -14,7 +14,9 @@ const CREATE_STUDENT_TABLE = `create table ${studentConstants.table_name}(
 module.exports = {
 
     createDatabase: () => {
-
+        database.getConnection().query(CREATE_STUDENT_TABLE, (err) => {
+            console.log(err ? err.message : "student table created");
+        });
     }
 
 };
