@@ -4,9 +4,8 @@
   "description": "Stackoverflow replica for wits students",
   "main": "index.js",
   "scripts": {
-    "test": "jest --config jestconfig.json",
-    "test:coverage": "jest --coverage",
-    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info",
+    "start": "node index.js",
+    "test": "jest --config jestconfig.json"
   },
   "repository": {
     "type": "git",
