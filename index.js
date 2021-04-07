@@ -11,6 +11,8 @@ const express = require('express');
 const database = require('./utils/services/database');
 //import the library that builds the database
 const databaseBuilder = require('./database/WTO_DB_BUILDER');
+//import path, we use this to make some directories public
+const path = require('path');
 
 database.connectToDatabase().then(
     () => {
@@ -24,7 +26,16 @@ database.connectToDatabase().then(
 const app = express();
 
 //config server to allow json as request inputs
-app.use(express.json())
+app.use(express.json());
+//make the public folder have public access
+app.use(express.static(path.join(__dirname, '/public')));
+
+//redirect server to index page when user opens server ip address on webpage
+app.get('/', (req, res) => {
+   res.sendFile('public/index.html', {
+      root: path.join(__dirname, './')
+   });
+});
 
 //create the server
 const server = http.createServer(app);

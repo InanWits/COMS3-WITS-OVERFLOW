@@ -4,6 +4,7 @@
   "description": "Stackoverflow replica for wits students",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "jest --config jestconfig.json"
   },
   "repository": {
