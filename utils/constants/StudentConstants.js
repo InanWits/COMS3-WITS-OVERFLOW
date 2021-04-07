@@ -1,5 +1,5 @@
 module.exports={
-  table_name : "Student",
+    table_name : "Student",
     id : "id",
     user_name : "user_name",
     first_name : "first_name",
