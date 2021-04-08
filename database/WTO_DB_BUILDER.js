@@ -14,13 +14,39 @@ const CREATE_STUDENT_TABLE = `create table ${studentConstants.table_name}(
     ${studentConstants.email} varchar(30) not null,
     ${studentConstants.date_of_birth} date not null,
     ${studentConstants.password} varchar(200) not null,
-    primary key (${studentConstants.id}))`;
+    primary key (${studentConstants.student_id}))`;
+
+const CREATE_QUESTION_TABLE = `create table ${questionConstants.table_name}(
+    ${questionConstants.question_id} int auto_increment,
+    ${questionConstants.student_id} int not null,
+    ${questionConstants.question} text,
+    ${questionConstants.post_date_time} timestamp not null default current_timestamp,
+    primary key (${questionConstants.question_id}),
+    foreign key (${questionConstants.student_id}) references ${studentConstants.table_name}(${studentConstants.student_id}))`;
+
+const CREATE_ANSWER_TABLE = `create table ${answerConstants.table_name}(
+    ${answerConstants.answer_id} int auto_increment,
+    ${answerConstants.question_id} int not null,
+    ${answerConstants.student_id} int not null,
+    ${answerConstants.answer} text,
+    ${answerConstants.post_date_time} timestamp not null default current_timestamp,
+    primary key(${answerConstants.answer_id}),
+    foreign key(${answerConstants.question_id}) references ${questionConstants.table_name}(${questionConstants.question_id}),
+    foreign key(${answerConstants.student_id}) references ${studentConstants.table_name}(${studentConstants.student_id}))`;
 
 module.exports = {
 
     createDatabase: () => {
         database.getConnection().query(CREATE_STUDENT_TABLE, (err) => {
             console.log(err ? err.message : "student table created");
+        });
+
+        database.getConnection().query(CREATE_QUESTION_TABLE, (err) => {
+            console.log(err ? err.message : "question table created");
+        });
+
+        database.getConnection().query(CREATE_ANSWER_TABLE, (err) => {
+            console.log(err ? err.message : "answer table created");
         });
     }
 
