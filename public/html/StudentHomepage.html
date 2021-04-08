@@ -22,7 +22,7 @@
 </li>
         
 <div class="items">
-<li><a href="#">Inan Rahman</a></li>
+<li><a href="#">User Name Displayed here</a></li>
 <!--<li><a href="#">About</a></li>
 <li><a href="#">Services</a></li>
 <li><a href="#">Contact</a></li>-->
@@ -70,10 +70,56 @@
       <div class="text">
           
       </div>
-      <div class="p">Welcome To Wits Overflow </div>
-      <a href="">School Of Science</a><br>
-      <a href="">School Of Commerce</a><br>
-      <a href="">School Of Humanities</a><br>
+      <div class="p">Welcome To Wits Overflow </div><br><br>
+      
+      <h2>Click on the Subject</h2>
+      <p>Topics will be listed per subject</p><br>
+
+      <div class="tab">
+        <button class="tablinks" onclick="openSubject(event, 'cs')" id="defaultOpen">Computer Science</button>
+        <button class="tablinks" onclick="openSubject(event, 'maths')">Maths</button>
+        <button class="tablinks" onclick="openSubject(event, 'commerce')">Commerce</button>
+      </div>
+
+<div id="cs" class="tabcontent">
+  <h3>Topics:</h3>
+  <a href="">Loops</a><br>
+  <a href="">Recursive Functions</a><br>
+  <a href="">HTML Coding</a><br>
+  <a href="">JavaScript Coding</a><br>
+</div>
+
+<div id="maths" class="tabcontent">
+  <h3>Topics:</h3>
+  <a href="">Pythagoras Theorem</a><br>
+  <a href="">Chaos Theory</a><br>
+  <a href="">Abstract Maths</a><br>
+  <a href="">Calculus</a><br>
+</div>
+
+<div id="commerce" class="tabcontent">
+  <h3>Topics:</h3>
+  <a href="">Accounting Theorems</a><br>
+</div>
+
+<script>
+function openSubject(evt, choice) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(choice).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get elements with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
      <!-- <div class="questionbox">
           <textarea style="resize:none" placeholder="Please type in your question here" name="textbox" rows="8" cols="90"></textarea>
       </div><br>
