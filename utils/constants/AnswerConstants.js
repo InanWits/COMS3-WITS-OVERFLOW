@@ -1,8 +1,8 @@
 module.exports = {
     table_name : "Answer",
-    id : "id",
+    answer_id : "answer_id",
     question_id : "question_id",
     student_id : "student_id",
     answer : "answer",
-    answer_date_time : "answer_date_time"
+    post_date_time : "post_date_time"
 }
