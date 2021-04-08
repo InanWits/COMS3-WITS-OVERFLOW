@@ -156,7 +156,7 @@ nav ul li.btn span.show:before{
 /*side bar design css*/
 .content{
   position: absolute;
-  top: 55%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: left;
