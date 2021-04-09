@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- <title>tITLE WITS OVERFLOW</title> -->
+    <link href="../css/AnswerPage.css" rel="stylesheet" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+<li class="logo">Wits Overflow</li>
+<li class="btn"><span class="fas fa-bars"></span></li>
+
+<li class="search-icon">
+          <input type="search" placeholder="Search">
+          <label class="icon">
+            <span class="fas fa-search"></span>
+          </label>
+</li>
+        
+<div class="items">
+  <li><a href="StudentHomepage.html">Home</a></li>
+  <li><a href="#">User Name here</a></li>
+<!--<li><a href="#">About</a></li>
+<li><a href="#">Services</a></li>
+<li><a href="#">Contact</a></li>-->
+</div>
+</nav>
+      
+      <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+      <header>Menu</header>
+      <!--<a href="#" class="active">
+        <i class="fas fa-qrcode"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="#">
+        <i class="fas fa-link"></i>
+        <span>Shortcuts</span>
+      </a>
+      <a href="#">
+        <i class="fas fa-stream"></i>
+        <span>Overview</span>
+      </a>
+      <a href="#">
+         <i class="fas fa-calendar"></i>
+        <span>Events</span>
+      </a>
+      <a href="#">
+        <i class="far fa-question-circle"></i>
+        <span>About</span>
+      </a>-->
+      <a href="QuestionPage.html">
+        <!--<i class="fas fa-sliders-h"></i>-->
+        <span>Ask a question</span>
+      </a>
+      <a href="#">
+        <!--<i class="far fa-envelope"></i>-->
+        <span>Help</span>
+      </a>
+    </div>
+      
+    <div class="content">
+      <div class="text">
+          
+      </div class="titlebox">
+      <div class="p">How to break a loop in If Statement? </div><br>
+      
+      <!--<h2></h2>-->
+      <p>Asked on 4th April 2021 &nbsp;   Views:14 &nbsp;   Answers:6</p><br>
+      
+
+      <div class="questionbox">
+        <h3>Computer Science</h3>
+        <button>testing</button><br>
+        <textarea name=mytextarea rows="8" cols="90" readonly></textarea>
+      </div>
+      
+      <!--<div class="tab">
+        <button class="tablinks" onclick="openSubject(event, 'cs')" id="defaultOpen">Faculty of Science</button>
+        <button class="tablinks" onclick="openSubject(event, 'eng')">Faculty of Engineering</button>
+        <button class="tablinks" onclick="openSubject(event, 'commerce')">Faculty of Commerce</button>
+      </div>
+
+<div id="cs" class="tabcontent">
+  <h3>Computer Science</h3>
+  <p></p>
+    <a href="ViewQuestionPage.html">Loops</a><br>
+    <a href="">Recursive Functions</a><br>
+    <a href="">HTML Coding</a><br>
+    <a href="">JavaScript Coding</a><br><br>
+  
+    <h3>Maths</h3>
+    <p></p>
+    <a href="">Pythagoras Theorem</a><br>
+    <a href="">Chaos Theory</a><br>
+    <a href="">Abstract Maths</a><br>
+    <a href="">Calculus</a><br>
+</div>
+
+<div id="eng" class="tabcontent">
+  <h3>Physics</h3>
+  <p></p>
+    <a href="">Circular Motion</a><br>
+    <a href="">Friction</a><br>
+    <a href="">Schrodinger's Cat</a><br><br>
+</div>
+
+<div id="commerce" class="tabcontent">
+  <h3>Accounting</h3>
+  <p></p>
+    <a href="">Balance Sheet Reconciliations</a><br><br>
+</div>
+
+<script>
+function openSubject(evt, choice) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(choice).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get elements with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+     <!-- <div class="questionbox">
+          <textarea style="resize:none" placeholder="Please type in your question here" name="textbox" rows="8" cols="90"></textarea>
+      </div><br>
+      <form action="/action_page.php">or please upload picture of question
+  <input type="file" id="myFile" name="filename">
+  <input type="submit" name="btnquestion" value="Upload"></form><br>
+  
+  <div class="dropdown">
+  <button class="mainmenubtn">Choose Subject</button>
+  <div class="dropdown-child">
+    <a href="">Computer Science</a>
+    <a href="">Maths</a>
+    <a href="">Physics</a>
+    <!--<a href="">Sub Menu 4</a>
+    <a href="">Sub Menu 5</a>
+  </div>
+  </div><br>-->
+  <!--<div class="w3-bar w3-light-grey">
+  <a href="#" class="w3-bar-item w3-button">Home</a>
+  <a href="#" class="w3-bar-item w3-button">Link 1</a>
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">Dropdown</button>
+    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+      <a href="#" class="w3-bar-item w3-button">Link 1</a>
+      <a href="#" class="w3-bar-item w3-button">Link 2</a>
+      <a href="#" class="w3-bar-item w3-button">Link 3</a>
+    </div>
+  </div>-->
+  
+  <!--<div class="container">
+            <button class="click">Choose Subject</button>
+            <div class="list">
+                <button class="links">Computer Science</button>
+                <button class="links">Maths</button>
+                <button class="links">Physics</button>
+                <button class="links">Link 4</button>
+                <button class="links">Link 5</button>
+            </div>
+        </div>
+        <script>
+            let click = document.querySelector('.click');
+            let list = document.querySelector('.list');
+            click.addEventListener("click",()=>{
+                list.classList.toggle('newlist');
+                document.addEventListener("click", closeAllSelect);
+            });
+                </script><br><br>-->
+   <!--<div class="custom-select" style="width:100%;height:30px;">
+  <select>
+    <option value="0">Choose School</option>
+    <option value="1">Science</option>
+    <option value="2">Engineering</option>
+    
+  </select>
+</div>
+  
+<div class="custom-select" style="width:100%;height:30px;">
+  <select>
+    <option value="0">Choose Subject</option>
+    <option value="1">Computer Science</option>
+    <option value="2">Maths</option>
+    
+  </select>
+</div>
+  
+  <div class="custom-select" style="width:100%; height:100px;">
+  <select>
+    <option value="0">Choose Language</option>
+    <option value="1">HTML</option>
+    <option value="2">CSS</option>
+    
+  </select>
+</div>
+    
+  
+  <input type="submit" name="btnquestion" value="Submit Question"></input>
+    </div>
+    <script>
+      $('nav ul li.btn span').click(function(){
+        $('nav ul div.items').toggleClass("show");
+        $('nav ul li.btn span').toggleClass("show");
+      });
+    </script>-->
+
+  </body>
+</html>
