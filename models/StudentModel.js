@@ -11,7 +11,7 @@ module.exports = {
         /*
         * StudentJsonObject is a json object in this format
         * {
-        *   id : "1234567",
+        *   student_id : "1234567",
         *   user_name : "ChrisBrown",
         *   first_name : "Sesona",
         *   last_name : "Maraxaba",
@@ -43,7 +43,7 @@ module.exports = {
         return new Promise((resolve, reject) => {
             const getAllStudents = queryHelper.buildSelectQuery(studentConstants.table_name);
 
-            const columnsToGet = [studentConstants.first_name, studentConstants.last_name];
+            const columnsToGet = [studentConstants.student_id, studentConstants.first_name, studentConstants.last_name];
             const getAllStudentsFL = queryHelper.buildSelectQuery(studentConstants.table_name, columnsToGet);
 
             console.log(getAllStudents);
@@ -63,17 +63,24 @@ module.exports = {
     loginStudent: async (StudentJsonObject) => {
         return new Promise((resolve, reject) => {
             const whereConditions = {
+                //added student id to the json object
+                [studentConstants.student_id] : StudentJsonObject[studentConstants.student_id],
                 [studentConstants.user_name] : StudentJsonObject[studentConstants.user_name],
                 [studentConstants.password] : StudentJsonObject[studentConstants.password]
             };
 
             const getStudent = queryHelper.buildSelectQuery(studentConstants.table_name,[], whereConditions);
 
-            db.getConnection().query(getStudent, (err) => {
+            db.getConnection().query(getStudent, (err, result) => {
                 if (err) {
                     reject(err.message);
-                } else {
-                    resolve("login success");
+                }
+                else {
+                    if (result.length === 0) {
+                        reject("Authorization failed due to bad credentials")
+                    } else {
+                        resolve("login success");
+                    }
                 }
             });
         });
