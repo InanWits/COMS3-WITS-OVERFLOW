@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  /*color: #f2f2f2;*/
+  color: #000;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+nav{
+  /*background: #222222;*/
+  background: white;
+  padding: 10px 40px 10px 70px;
+  border: 1px solid #000;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+}
+nav ul{
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+nav ul li.logo{
+  flex: 1;
+  font-size: 30px;
+  font-weight: 700;
+}
+nav ul div.items{
+  padding: 0 25px 0px 300px;
+  display: inline-flex;
+}
+nav ul div.items a{
+  text-decoration: none;
+  font-size: 18px;
+  padding: 0 12px;
+}
+nav ul div.items a:hover{
+  color: maroon;
+}
+nav ul .search-icon{
+  height: 40px;
+  width: 540px;
+  display: flex;
+  background: #f2f2f2;
+  border-radius: 5px;
+}
+nav ul{
+    height: 60px;
+}
+
+nav ul .search-icon input{
+  height: 100%;
+  width: 500px;
+  border: 1px solid black;
+  outline: none;
+  padding: 0 10px;
+  color: #000;
+  font-size: 16px;
+  border-radius: 5px 0 0 5px;
+  
+}
+nav ul .search-icon .icon{
+  height: 100%;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid #cccccc;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+nav ul .search-icon .icon:hover{
+  background: #e6e6e6;
+}
+nav ul .search-icon .icon span{
+  color: #222222;
+  font-size: 18px;
+}
+nav ul li.btn{
+  font-size: 29px;
+  flex: 1;
+  padding: 0 40px;
+  display: none;
+}
+nav ul li.btn span{
+  height: 42px;
+  width: 42px;
+  text-align: center;
+  line-height: 42px;
+  border: 1px solid #151515;
+  border-radius: 5px;
+  cursor: pointer;
+}
+nav ul li.btn span.show:before{
+  content: '\f00d';
+}
+@media screen and (max-width: 1052px) {
+  nav{
+    padding: 10px 40px 10px 0px;
+  }
+  nav ul li.logo{
+    display: none;
+  }
+  nav ul div.items{
+    flex: 4;
+  }
+}
+@media screen and (max-width: 800px){
+  nav ul li.btn{
+    display: block;
+  }
+  nav{
+    z-index: 1;
+    padding: 9px 40px 9px 0;
+  }
+  nav ul div.items{
+    z-index: -1;
+    position: fixed;
+    top: -220px;
+    right: 0;
+    width: 100%;
+    background: #222222;
+    display: inline-block;
+    transition: top .4s;
+  }
+  nav ul div.items.show{
+    top: 60px;
+  }
+  nav ul div.items li{
+    text-align: center;
+    line-height: 30px;
+    margin: 30px 0;
+  }
+  nav ul div.items li a{
+    font-size: 19px;
+  }
+}
+@media screen and (max-width: 405px) {
+  nav ul{
+    flex-wrap: nowrap;
+  }
+  nav ul li.search{
+    width: 50vmin;
+  }
+  nav ul li input{
+    width: 40vmin;
+  }
+  nav ul li .search-icon{
+    width: 10vmin;
+  }
+}
+
+/*side bar design css*/
+.content{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  width: 60%;
+  padding: 0 40px 40px;
+  z-index: -2;
+  border: 0px solid black;
+}
+.content .text{
+  font-size: 40px;
+  font-weight: 800;
+  padding: 5px 0;
+  color: #202020;
+}
+.content .p{
+  font-size: 36px;
+  font-weight: 600;
+  color: #202020;
+}
+
+.sidebar{
+  position: fixed;
+  width: 240px;
+  left: -240px;
+  height: 100%;
+  /*background: #1e1e1e;*/
+  background: #white;
+  transition: all .5s ease;
+}
+.sidebar header{
+  font-size: 28px;
+  color: white;
+  line-height: 70px;
+  text-align: center;
+  background: #1b1b1b;
+  user-select: none;
+  font-family: 'Montserrat', sans-serif;
+}
+.sidebar a{
+  display: block;
+  height: 65px;
+  width: 100%;
+  color: white;
+  line-height: 65px;
+  padding-left: 30px;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  border-top: 1px solid rgba(255,255,255,.1);
+  border-left: 5px solid transparent;
+  border-right:1px solid black;
+  font-family: 'Open Sans', sans-serif;
+  transition: all .5s ease;
+}
+a.active,a:hover{
+  /*border-left: 5px solid #b93632;*/
+  color: #b93632;
+}
+.sidebar a i{
+  font-size: 23px;
+  margin-right: 16px;
+}
+.sidebar a span{
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+#check{
+  display: none;
+}
+label #btn,label #cancel{
+  position: absolute;
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #262626;
+  margin: 15px 30px;
+  font-size: 29px;
+  background: #262626;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  line-height: 45px;
+  transition: all .5s ease;
+}
+label #cancel{
+  opacity: 0;
+  visibility: hidden;
+}
+#check:checked ~ .sidebar{
+  left: 0;
+}
+#check:checked ~ label #btn{
+  margin-left: 245px;
+  opacity: 0;
+  visibility: hidden;
+}
+#check:checked ~ label #cancel{
+  margin-left: 245px;
+  opacity: 1;
+  visibility: visible;
+}
+@media(max-width : 860px){
+  .sidebar{
+    height: auto;
+    width: 70px;
+    left: 0;
+    margin: 100px 0;
+  }
+  header,#btn,#cancel{
+    display: none;
+  }
+  span{
+    position: absolute;
+    margin-left: 23px;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .sidebar a{
+    height: 60px;
+  }
+  .sidebar a i{
+    margin-left: -10px;
+  }
+  a:hover {
+    width: 200px;
+    background: inherit;
+  }
+  .sidebar a:hover span{
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.btnquestion{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+/*drop down previosuly used
+.container {
+    width:200px;
+    position: relative;
+}
+
+.click{
+    background-color: black;
+}
+
+.click:hover {
+    background-color: #B71C1C;
+}
+
+.click,.links {
+    padding: 12px;
+    font-size: 1.2em;
+    font-family: futura Md BT;
+    border: none;
+    outline: none;
+    width:200px;
+    color:white;
+    transition: 0.3s;
+}
+
+.list {
+    position: absolute;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: 0.3s;
+}
+
+.newlist {
+    transform: scaleY(1);
+}
+
+.links {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.links:hover {
+    background-color: white;
+    transform: scale(1.1);
+}*/
+
+.tab {
+  float: left;
+  border: 2px solid black;
+  background-color: #f1f1f1;
+  width: 30%;
+  height: 600px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  padding: 0px 12px;
+  border: 1px solid #ccc;
+  width: 70%;
+  border-left: none;
+  height: 600px;
+}
+
+/*question box*/
+.questionbox{
+    position: absolute;
+    top: 200%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    width: 100%;
+    height: 400px;
+    padding: 0 40px 40px;
+    z-index: -2;
+    border-top: 1px solid black;
+  }
+  .questionbox .text{
+    font-size: 40px;
+    font-weight: 800;
+    padding: 5px 0;
+    color: #202020;
+  }
+  .questionbox .p{
+    font-size: 36px;
+    font-weight: 600;
+    color: #202020;
+  }
