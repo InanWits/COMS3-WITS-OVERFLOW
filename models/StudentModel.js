@@ -16,7 +16,7 @@ module.exports = {
         *   first_name : "Sesona",
         *   last_name : "Maraxaba",
         *   email : "1636376@students.wits.ac.za",
-        *   date_of_birth : "20-06-2003",
+        *   date_of_birth : "20003-06-20",
         *   password : "password"
         *}
         * */
@@ -64,12 +64,13 @@ module.exports = {
         return new Promise((resolve, reject) => {
             const whereConditions = {
                 //added student id to the json object
-                [studentConstants.student_id] : StudentJsonObject[studentConstants.student_id],
                 [studentConstants.user_name] : StudentJsonObject[studentConstants.user_name],
                 [studentConstants.password] : StudentJsonObject[studentConstants.password]
             };
 
-            const getStudent = queryHelper.buildSelectQuery(studentConstants.table_name,[], whereConditions);
+            const getStudent = queryHelper.buildSelectQuery(studentConstants.table_name,[studentConstants.student_id], whereConditions);
+
+            console.log(getStudent);
 
             db.getConnection().query(getStudent, (err, result) => {
                 if (err) {
@@ -79,7 +80,7 @@ module.exports = {
                     if (result.length === 0) {
                         reject("Authorization failed due to bad credentials")
                     } else {
-                        resolve("login success");
+                        resolve(result[0][studentConstants.student_id]);
                     }
                 }
             });
