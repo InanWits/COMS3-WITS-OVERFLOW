@@ -1,6 +1,6 @@
 const answerModel = require('../models/AnswerModel');
 
-//const answerConstants = require('../utils/constants/AnswerConstants');
+const answerConstants = require('../utils/constants/AnswerConstants');
 
 const responseHandler = require('../utils/services/ResponseHandler');
 
