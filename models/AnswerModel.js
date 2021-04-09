@@ -11,8 +11,8 @@ module.exports = {
         /*
         * QuestionJsonObject is a json object in this format
         * {
-        *   answer_id : "1",
-        *   question_id : "1",
+        *
+        *
         *   student_id : "123456",
         *   answer : "answer here",
         *   post_date_time: "post_date_time"
