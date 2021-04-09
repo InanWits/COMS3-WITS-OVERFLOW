@@ -14,9 +14,9 @@ const router = express.Router();
 *student_id : "1918469",
 * user_name : "Tt",
 * first_name : "Thabelang",
-* lastname_name : "Ncube",
+* last_name : "Ncube",
 * email : "1918469@students.wits.ac.za",
-* date_of_birt : "20-06-2004", //YYYY-MM-DD
+* date_of_birth : "2004-06-20", //YYYY-MM-DD
 * password : "password"
 * }
 * */
