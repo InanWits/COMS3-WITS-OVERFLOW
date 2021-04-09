@@ -5,12 +5,31 @@
     <head>
         <meta charset="utf-8">
         <title>Sign up</title>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="../js/utils/constants/Constants.js"></script>
+        <script src="../js/api/constants/RequestConstants.js"></script>
+        <script src="../js/api/REST_API.js"></script>
+
+        <script src="../js/controllers/StudentRegistrationController.js"></script>
+        <script src="../js/models/StudentModel.js"></script>
     </head>
 
     <body>
     <div class="wrapper">
         <div class="title">Wits Overflow</div>
-        <form method="POST" action="#">
+        <form id="reg-form" method="POST" action="#">
+
+            <div class="field">
+                <input id="student_id" type="number" name="student_id" required>
+                <label for="student_id">Student Id</label>
+            </div>
+
+            <div class="field">
+                <input id="user_name" type="text" name="user_name" required>
+                <label for="user_name">User Name</label>
+            </div>
+
             <div class="field">
                 <input id="first_name" type="text" name="first_name" required>
                 <label for="first_name">First Name</label>
@@ -55,6 +74,10 @@
                 <a href="../index.html">Sign In Instead</a></div>
         </form>
     </div>
+
+    <script>
+        configWTOApi();
+    </script>
 
     </body>
 </html>

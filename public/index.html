@@ -6,6 +6,16 @@
         <title>Wits Overflow</title>
 
         <link href="css/newcss.css" rel="stylesheet" type="text/css"/>
+
+
+        <!--Needed in every page that makes server requests-->
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="js/utils/constants/Constants.js"></script>
+        <script src="js/api/constants/RequestConstants.js"></script>
+        <script src="js/api/REST_API.js"></script>
+
+
+
     </head>
 
     <body>
@@ -14,8 +24,8 @@
             <div class="title">Wits Overflow</div>
             <form method="POST" action=""> <!-- please put the page name for homepage-->
                 <div class="field">
-                    <input id="email" type="email" name="email" required>
-                    <label for="email">Email Address</label>
+                    <input id="user_name" type="text" name="user_name" required>
+                    <label for="user_name">User Name</label>
                 </div>
                 <div class="field">
                     <input id="password" type="password" name="password" required>
@@ -40,6 +50,9 @@
             </form>
         </div>
 
+    <script>
+        configWTOApi();
+    </script>
 
     </body>
 

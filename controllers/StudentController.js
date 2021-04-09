@@ -9,14 +9,15 @@ const express = require('express');
 const router = express.Router();
 
 /*
+* Registers Student
 * StudentJsonObject is a json object in this format
 * {
 *student_id : "1918469",
 * user_name : "Tt",
 * first_name : "Thabelang",
-* lastname_name : "Ncube",
+* last_name : "Ncube",
 * email : "1918469@students.wits.ac.za",
-* date_of_birth : "20-06-2004", //YYYY-MM-DD
+* date_of_birth : "2004-06-20", //YYYY-MM-DD
 * password : "password"
 * }
 * */
@@ -34,6 +35,7 @@ router.post('/', (req, res) => {
 });
 
 /*
+* Logs in student
 * req.params -> user_name
 * inputs:
 * {
@@ -60,6 +62,7 @@ router.post(`/:${studentConstants.user_name}`, (req, res) => {
 });
 
 /*
+* Retrieves all students
 * input: none
 * outputs:
 * success -> (jsonArray) ->

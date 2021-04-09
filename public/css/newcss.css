@@ -15,6 +15,19 @@ and open the template in the editor.
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 html,body{
   display: grid;
   height: 100%;
