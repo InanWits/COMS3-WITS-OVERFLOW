@@ -7,20 +7,18 @@ const queryHelper = require('../helpers/QueryHelper');
 
 module.exports = {
 
-    insertStudent: async (QuestionJsonObject) => {
-        /*
-        * QuestionJsonObject is a json object in this format
-        * {
-        *   question_id : "1",
-        *   student_id : "123456",
-        *   question : "question?",
-        *   post_date_time: "post_date_time"
-        *}
-        * */
+    /*
+       * QuestionJsonObject is a json object in this format
+       * {
+       *   student_id : "123456",
+       *   question : "question?"
+       *}
+       * */
+    insertQuestion: async (QuestionJsonObject) => {
+
         return new Promise((resolve, reject) => {
 
-            const columnsToBeInserted = [questionConstants.question_id, questionConstants.student_id,
-                questionConstants.question, questionConstants.post_date_time];
+            const columnsToBeInserted = [ questionConstants.student_id, questionConstants.question];
 
             const insertQuestion = queryHelper.buildInsertQuery(questionConstants.table_name, columnsToBeInserted, QuestionJsonObject);
 
