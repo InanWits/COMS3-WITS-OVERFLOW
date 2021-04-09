@@ -1,6 +1,6 @@
 const questionModel = require('../models/QuestionModel');
 
-//const questionConstants = require('../utils/constants/QuestionConstants');
+const questionConstants = require('../utils/constants/QuestionConstants');
 
 const responseHandler = require('../utils/services/ResponseHandler');
 
@@ -19,5 +19,20 @@ router.post('/', (req, res) => {
         }
     )
 });
+
+/*router.post(`/:${questionConstants.question}`, (req, res) => {
+    const Question = req.params[questionConstants.question];
+    req.body[questionConstants.question] = Question;
+
+    questionModel.insertQuestion(req.body).then(
+        (response) => {
+            responseHandler.sendResponseOkay(response, res);
+        },
+        (err) => {
+            responseHandler.sendNotAcceptableResponse(err, res);
+        }
+    );
+});*/
+
 
 module.exports = router;
