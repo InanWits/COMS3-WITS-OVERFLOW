@@ -183,7 +183,7 @@ nav ul li.btn span.show:before{
   left: -240px;
   height: 100%;
   /*background: #1e1e1e;*/
-  background: #white;
+  background: white;
   transition: all .5s ease;
 }
 .sidebar header{
@@ -397,10 +397,11 @@ label #cancel{
     transform: translate(-50%, -50%);
     text-align: left;
     width: 100%;
-    height: 400px;
-    padding: 0 40px 40px;
+    height: 360px;
+    padding: 0 40px 40px; /*padding with 0px changed to fit that div content*/
     z-index: -2;
     border-top: 1px solid black;
+    border-bottom: 1px solid black
   }
   .questionbox .text{
     font-size: 40px;
@@ -412,4 +413,42 @@ label #cancel{
     font-size: 36px;
     font-weight: 600;
     color: #202020;
+  }
+
+  /*upvote and downvote*/
+  .votebox{
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 0px;
+    text-align:left;
+    top: 80%;
+    border-top: 1px solid black;
+  }
+  .vote{
+    font-size:36px;
+  }
+  .up{
+    color:green;
+  }
+  .down{
+    color:red;
+  }
+  .inactive{
+    color:gray;
+  }
+  .score{
+    position: relative;
+    display:block;
+    padding: 5px 0px;
+  }
+  .badge{
+    background: #eee;
+    padding:5px 10px;
+    border-radius: 30px;
+    position: absolute;
+    top: 0;
+    margin-left:10px;
+  }
+  .questionarea{
+    color: lightgray;
   }
