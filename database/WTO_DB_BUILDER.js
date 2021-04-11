@@ -3,8 +3,7 @@ const database = require('../utils/services/database');
 const studentConstants = require('../utils/constants/StudentConstants');
 const questionConstants = require('../utils/constants/QuestionConstants');
 const answerConstants = require('../utils/constants/AnswerConstants');
-
-
+const topicConstants = require('../utils/constants/TopicCostants');
 
 const CREATE_STUDENT_TABLE = `create table ${studentConstants.table_name}(
     ${studentConstants.student_id} int ,
@@ -34,6 +33,16 @@ const CREATE_ANSWER_TABLE = `create table ${answerConstants.table_name}(
     foreign key(${answerConstants.question_id}) references ${questionConstants.table_name}(${questionConstants.question_id}),
     foreign key(${answerConstants.student_id}) references ${studentConstants.table_name}(${studentConstants.student_id}))`;
 
+const CREATE_TOPIC_TABLE = `create table ${topicConstants.table_name}(
+    ${topicConstants.topic_id} int auto_increment,
+    ${topicConstants.question_id} int not null,
+    ${topicConstants.answer_id} int not null,
+    ${topicConstants.topic} text,
+    primary key(${topicConstants.topic_id}),
+    foreign key(${topicConstants.question_id}) references ${questionConstants.table_name}(${questionConstants.question_id}),
+    foreign key(${answerConstants.answer_id}) references ${answerConstants.table_name}(${answerConstants.answer_id}))`;
+
+
 module.exports = {
 
     createDatabase: () => {
@@ -47,6 +56,9 @@ module.exports = {
 
         database.getConnection().query(CREATE_ANSWER_TABLE, (err) => {
             console.log(err ? err.message : "answer table created");
+        });
+        database.getConnection().query(CREATE_TOPIC_TABLE, (err) =>{
+         console.log(err ? err.message : "topic table created");
         });
     }
 
