@@ -16,7 +16,7 @@ const path = require('path');
 
 database.connectToDatabase().then(
     () => {
-       // databaseBuilder.createDatabase();
+        //databaseBuilder.createDatabase();
         console.log('connected to database');
     },
     (err) => { console.log(err.message)}
