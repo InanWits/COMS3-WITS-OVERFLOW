@@ -21,6 +21,7 @@ module.exports = {
         *}
         * */
         return new Promise((resolve, reject) => {
+            //const hash_pass = studentConstants.password;
 
             const columnsToBeInserted = [studentConstants.student_id, studentConstants.user_name,studentConstants.first_name, studentConstants.last_name,
                                         studentConstants.email,studentConstants.date_of_birth,studentConstants.password];
