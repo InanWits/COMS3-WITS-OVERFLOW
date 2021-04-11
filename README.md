@@ -2,7 +2,7 @@
 > This is a question and answer platform for the university where anyone can ask a question related to their course work and anyone on the platform who is able to assist can answer the question. 
 
 ## Project set up
-To set up the project the following were used: Node js, Webstorm, Mysql, Postman. Jquery and Ajax are both used to connect the front end and the back end, the language that is mostly used for this is javascript. 
+To set up the project the following were used: Node js, Webstorm, Mysql, Postman. Jquery and Ajax are both used to connect the front end and the back end, the language that is mostly used for this is javascript. For the user interface, the code was run through VS code with the code runner extension. Code runner allows you to run the code, works as a compiler.
 
 ## Requirements
 A PC that has a 4GB RAM, Core i3 and Mysql will be used as a local server. 
