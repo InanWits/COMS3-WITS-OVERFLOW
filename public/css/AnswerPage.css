@@ -180,7 +180,7 @@ nav ul li.btn span.show:before{
 .sidebar{
   position: fixed;
   width: 240px;
-  left: -240px;
+  /*left: -240px;*/
   height: 100%;
   /*background: #1e1e1e;*/
   background: white;
@@ -222,7 +222,7 @@ a.active,a:hover{
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-#check{
+/*#check{
   display: none;
 }
 label #btn,label #cancel{
@@ -256,7 +256,7 @@ label #cancel{
   margin-left: 245px;
   opacity: 1;
   visibility: visible;
-}
+}*/
 @media(max-width : 860px){
   .sidebar{
     height: auto;
