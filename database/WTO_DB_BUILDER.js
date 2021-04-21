@@ -4,6 +4,8 @@ const studentConstants = require('../utils/constants/StudentConstants');
 const questionConstants = require('../utils/constants/QuestionConstants');
 const answerConstants = require('../utils/constants/AnswerConstants');
 const topicConstants = require('../utils/constants/TopicCostants');
+const questionPictureConstants = require('../utils/constants/QuestionPictureConstants');
+const answerPictureConstants = require('../utils/constants/AnswerPictureConstants');
 
 const CREATE_STUDENT_TABLE = `create table ${studentConstants.table_name}(
     ${studentConstants.student_id} int ,
@@ -40,8 +42,22 @@ const CREATE_TOPIC_TABLE = `create table ${topicConstants.table_name}(
     ${topicConstants.topic} text,
     primary key(${topicConstants.topic_id}),
     foreign key(${topicConstants.question_id}) references ${questionConstants.table_name}(${questionConstants.question_id}),
-    foreign key(${answerConstants.answer_id}) references ${answerConstants.table_name}(${answerConstants.answer_id}))`;
+    foreign key(${topicConstants.answer_id}) references ${answerConstants.table_name}(${answerConstants.answer_id}))`;
 
+
+const CREATE_QUESTION_PICTURE_TABLE = `create table ${questionPictureConstants.table_name}(
+    ${questionPictureConstants.question_picture_id} int auto_increment,
+    ${questionPictureConstants.question_id} int not null,
+    ${questionPictureConstants.question_picture_url} text,
+    primary key (${questionPictureConstants.question_picture_id}),
+    foreign key (${questionPictureConstants.question_id}) references ${questionConstants.table_name}(${questionConstants.question_id}))`;
+
+const CREATE_ANSWER_PICTURE_TABLE = `create table ${answerPictureConstants.table_name}(
+    ${answerPictureConstants.answer_picture_id} int auto_increment,
+    ${answerPictureConstants.answer_id} int not null,
+    ${answerPictureConstants.answer_picture_url} text,
+    primary key (${answerPictureConstants.answer_picture_id}),
+    foreign key (${answerPictureConstants.answer_id}) references ${answerConstants.table_name}(${answerConstants.answer_id}))`;
 
 module.exports = {
 
@@ -59,6 +75,14 @@ module.exports = {
         });
         database.getConnection().query(CREATE_TOPIC_TABLE, (err) =>{
          console.log(err ? err.message : "topic table created");
+        });
+
+        database.getConnection().query(CREATE_QUESTION_PICTURE_TABLE, (err) =>{
+           console.log(err ? err.message : "question  picture table created");
+        });
+
+        database.getConnection().query(CREATE_ANSWER_PICTURE_TABLE, (err) =>{
+            console.log(err ? err.message : "answer picture table created");
         });
     }
 
