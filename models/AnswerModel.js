@@ -13,15 +13,16 @@ module.exports = {
         * {
         *
         *
-        *   student_id : "123456",
-        *   question_id : "1",
-        *   answer : "answer here"
+        *   "student_id" : "123456",
+        *   "question_id" : "1",
+        *   "answer" : "answer here"
+        *   "answer_picture_url" : "picture here"
         *
         *}
         * */
         return new Promise((resolve, reject) => {
 
-            const columnsToBeInserted = [answerConstants.student_id, answerConstants.question_id, answerConstants.answer];
+            const columnsToBeInserted = [answerConstants.student_id, answerConstants.question_id, answerConstants.answer, answerConstants.answer_picture_url];
 
             const insertAnswer = queryHelper.buildInsertQuery(answerConstants.table_name, columnsToBeInserted, AnswerJsonObject);
 
