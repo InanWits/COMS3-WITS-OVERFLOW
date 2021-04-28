@@ -9,6 +9,9 @@
 }
 nav{
   /*background: #222222;*/
+  position: fixed;
+  width: 100%;
+  top: 0px;
   background: white;
   padding: 10px 40px 10px 70px;
   border: 1px solid #000;
@@ -179,8 +182,9 @@ nav ul li.btn span.show:before{
 
 .sidebar{
   position: fixed;
+  top: 80px;
   width: 240px;
-  left: -240px;
+  /*left: -240px;*/
   height: 100%;
   /*background: #1e1e1e;*/
   background: #white;
@@ -222,7 +226,7 @@ a.active,a:hover{
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-#check{
+/*#check{
   display: none;
 }
 label #btn,label #cancel{
@@ -256,7 +260,7 @@ label #cancel{
   margin-left: 245px;
   opacity: 1;
   visibility: visible;
-}
+}*/
 @media(max-width : 860px){
   .sidebar{
     height: auto;

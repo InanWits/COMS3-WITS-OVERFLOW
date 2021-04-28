@@ -16,7 +16,7 @@ const path = require('path');
 
 database.connectToDatabase().then(
     () => {
-       // databaseBuilder.createDatabase();
+        //databaseBuilder.createDatabase();
         console.log('connected to database');
     },
     (err) => { console.log(err.message)}
@@ -41,11 +41,20 @@ app.get('/', (req, res) => {
 const StudentController = require('./controllers/StudentController');
 const AnswerController = require('./controllers/AnswerController');
 const QuestionController = require('./controllers/QuestionController');
+const RateController = require('./controllers/RateController');
+const TopicConstants = require('./controllers/TopicController');
+const FacultyConstants = require('./controllers/FacultyController');
+const SchoolConstants = require('./controllers/SchoolController');
+
 
 //bind routers to controllers.
 app.use('/Students', StudentController);
 app.use('/Questions', QuestionController);
 app.use('/Answers', AnswerController);
+app.use('/Rates', RateController);
+app.use('/Topics', TopicConstants);
+app.use('/Faculties', FacultyConstants);
+app.use('/Schools', SchoolConstants);
 
 //create the server
 const server = http.createServer(app);
