@@ -90,11 +90,11 @@ module.exports = {
                         const plainPassword = StudentJsonObject[studentConstants.password];
                         const studentObj = result[0];
                         const hashedPassword = studentObj[studentConstants.password];
-                        bcrypt.compare(plainPassword,hashedPassword, (err, result) =>{
-                            if (result) {
-                                resolve(result[0][studentConstants.student_id]);
-                            }
 
+                        bcrypt.compare(plainPassword, hashedPassword, (err, result) =>{
+                            if (result) {
+                                resolve(studentObj[studentConstants.student_id]);
+                            }
                             else{
                                 reject("Authorization failed due to bad credentials");
                             }
