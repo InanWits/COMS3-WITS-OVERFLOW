@@ -74,7 +74,8 @@ module.exports = {
                 [studentConstants.user_name] : StudentJsonObject[studentConstants.user_name]
             };
 
-            const getStudent = queryHelper.buildSelectQuery(studentConstants.table_name,[studentConstants.student_id], whereConditions);
+            const getStudent = queryHelper.buildSelectQuery(studentConstants.table_name,
+                [studentConstants.student_id, studentConstants.password], whereConditions);
 
             console.log(getStudent);
 
