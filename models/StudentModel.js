@@ -85,7 +85,7 @@ module.exports = {
                 }
                 else {
                     if (result.length === 0) {
-                       // reject("Authorization failed due to bad credentials")
+                       reject("Authorization failed due to bad credentials")
                     } else {
                         const plainPassword = StudentJsonObject[studentConstants.password];
                         const studentObj = result[0];
