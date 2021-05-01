@@ -3,7 +3,8 @@ const db = require('../utils/services/database');
 const studentConstants = require('../utils/constants/StudentConstants');
 
 const queryHelper = require('../helpers/QueryHelper');
-
+const bcrypt = require('bcrypt');
+const express = require('express');
 
 module.exports = {
 
@@ -20,6 +21,12 @@ module.exports = {
         *   password : "password"
         *}
         * */
+
+        const  password = StudentJsonObject[studentConstants.password];
+        const  salt = await bcrypt.genSalt();
+        const hashedPassword = await bcrypt.hash(password,salt);
+        StudentJsonObject[studentConstants.password] = hashedPassword;
+
         return new Promise((resolve, reject) => {
             //const hash_pass = studentConstants.password;
 
@@ -65,8 +72,7 @@ module.exports = {
         return new Promise((resolve, reject) => {
             const whereConditions = {
                 //added student id to the json object
-                [studentConstants.user_name] : StudentJsonObject[studentConstants.user_name],
-                [studentConstants.password] : StudentJsonObject[studentConstants.password]
+                [studentConstants.user_name] : StudentJsonObject[studentConstants.user_name]
             };
 
             const getStudent = queryHelper.buildSelectQuery(studentConstants.table_name,[studentConstants.student_id], whereConditions);
@@ -79,9 +85,21 @@ module.exports = {
                 }
                 else {
                     if (result.length === 0) {
-                        reject("Authorization failed due to bad credentials")
+                       // reject("Authorization failed due to bad credentials")
                     } else {
-                        resolve(result[0][studentConstants.student_id]);
+                        const plainPassword = StudentJsonObject[studentConstants.password];
+                        const studentObj = result[0];
+                        const hashedPassword = studentObj[studentConstants.password];
+                        bcrypt.compare(plainPassword,hashedPassword, (err, result) =>{
+                            if (result) {
+                                resolve(result[0][studentConstants.student_id]);
+                            }
+
+                            else{
+                                reject("Authorization failed due to bad credentials");
+                            }
+                        });
+
                     }
                 }
             });
