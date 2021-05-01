@@ -4,7 +4,6 @@ const studentConstants = require('../utils/constants/StudentConstants');
 
 const queryHelper = require('../helpers/QueryHelper');
 const bcrypt = require('bcrypt');
-const express = require('express');
 
 module.exports = {
 
