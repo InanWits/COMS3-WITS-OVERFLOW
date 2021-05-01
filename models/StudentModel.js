@@ -21,13 +21,13 @@ module.exports = {
         *}
         * */
 
-        const  password = StudentJsonObject[studentConstants.password];
-        const  salt = await bcrypt.genSalt();
-        const hashedPassword = await bcrypt.hash(password,salt);
-        StudentJsonObject[studentConstants.password] = hashedPassword;
-
         return new Promise((resolve, reject) => {
             //const hash_pass = studentConstants.password;
+
+            const saltRounds = 10;
+            const  password = StudentJsonObject[studentConstants.password];
+            const  salt = bcrypt.genSaltSync(saltRounds);
+            StudentJsonObject[studentConstants.password] = bcrypt.hashSync(password, salt);
 
             const columnsToBeInserted = [studentConstants.student_id, studentConstants.user_name,studentConstants.first_name, studentConstants.last_name,
                                         studentConstants.email,studentConstants.date_of_birth,studentConstants.password];
