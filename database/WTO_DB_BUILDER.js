@@ -86,6 +86,11 @@ module.exports = {
         database.getConnection().query(CREATE_FACULTY_TABLE, (err) => {
             console.log(err ? err.message : "faculty table created");
         });
+        //pre-populated faculties on the faculty table
+        database.getConnection().query("INSERT into faculty(faculty_name)values('Commerce,Law and Management')");
+        database.getConnection().query("INSERT into faculty(faculty_name)values('Engineering')");
+        database.getConnection().query("INSERT into faculty(faculty_name)values('Humanities')");
+        database.getConnection().query("INSERT into faculty(faculty_name)values('Science')");
 
 
         database.getConnection().query(CREATE_SCHOOL_TABLE, (err) =>{
