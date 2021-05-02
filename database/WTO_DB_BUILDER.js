@@ -97,6 +97,14 @@ module.exports = {
             console.log(err ? err.message : "school table created");
         });
 
+        //pre-populated school table
+        database.getConnection().query("INSERT into school(school_name,faculty_id)values('School of CompSci',4),('School of Mathematics',4),('School of Applied Mathematics',4)");
+        database.getConnection().query("INSERT into school(school_name,faculty_id)values('School of Accounting',1),('School of Law',1),('School of Economics',1)");
+        database.getConnection().query("INSERT into school(school_name,faculty_id)values('School of Civil Engineering',2)");
+        database.getConnection().query("INSERT into school(school_name,faculty_id)values('School of Education',3),('School of Arts',3)");
+
+
+
         database.getConnection().query(CREATE_TOPIC_TABLE, (err) =>{
             console.log(err ? err.message : "topic table created");
         });
