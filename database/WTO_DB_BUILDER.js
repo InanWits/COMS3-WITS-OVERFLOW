@@ -25,7 +25,7 @@ const CREATE_FACULTY_TABLE = `create table ${facultyConstants.table_name}(
 
 const CREATE_SCHOOL_TABLE =`create table ${schoolConstants.table_name}(
     ${schoolConstants.school_id} int auto_increment,
-    ${schoolConstants.school_name} varchar(20) unique not null,
+    ${schoolConstants.school_name} varchar(70) unique not null,
     ${schoolConstants.faculty_id} int not null,
     primary key (${schoolConstants.school_id}),
     foreign key (${schoolConstants.faculty_id}) references ${facultyConstants.table_name} (${facultyConstants.faculty_id}))`;
