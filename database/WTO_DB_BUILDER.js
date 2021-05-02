@@ -20,7 +20,7 @@ const CREATE_STUDENT_TABLE = `create table ${studentConstants.table_name}(
 
 const CREATE_FACULTY_TABLE = `create table ${facultyConstants.table_name}(
     ${facultyConstants.faculty_id} int auto_increment,
-    ${facultyConstants.faculty_name} varchar(20) unique not null,
+    ${facultyConstants.faculty_name} varchar(50) unique not null,
     primary key (${facultyConstants.faculty_id}))`;
 
 const CREATE_SCHOOL_TABLE =`create table ${schoolConstants.table_name}(
