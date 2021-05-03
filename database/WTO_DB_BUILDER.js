@@ -73,6 +73,9 @@ const CREATE_RATE_TABLE  = `create table ${rateConstants.table_name}(
 const INSERT_FACULTIES = `insert into ${facultyConstants.table_name}(${facultyConstants.faculty_name}) values ('Commerce,Law and Management'), ('Engineering'),
     ('Humanities'), ('Science')`;
 
+const INSERT_SCHOOLS = `insert into ${schoolConstants.table_name}(${schoolConstants.school_name}, ${schoolConstants.faculty_id}) values ('School of CompSci',4), ('School of Mathematics',4), 
+    ('School of Applied Mathematics',4), ('School of Accounting',1), ('School of Law',1), ('School of Economics',1), 
+    ('School of Civil Engineering',2), ('School of Education',3),('School of Arts',3)`;
 module.exports = {
 
     createDatabase: () => {
