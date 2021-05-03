@@ -20,4 +20,12 @@ router.post('/', (req, res) => {
     )
 });
 
+router.get(`/:${topicConstants.school_id}`, (req, res) => {
+    const schoolId = req.params[topicConstants.school_id];
+    topicModel.readTopics(schoolId).then(
+        (response) => responseHandler.sendResponseOkay(response, res),
+        (err) => responseHandler.sendNotAcceptableResponse(err, res)
+    );
+});
+
 module.exports = router;
