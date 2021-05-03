@@ -1,6 +1,6 @@
 const schoolModel = require('../models/SchoolModel');
-
-const schoolConstants = require('../utils/constants/SchoolConstants');
+const topicModel = require('../models/TopicModel');
+const topicConstants = require('../utils/constants/TopicCostants');
 
 const responseHandler = require('../utils/services/ResponseHandler');
 
@@ -16,9 +16,9 @@ router.post('/', (req, res) => {
     );
 });
 
-router.get(`/:${schoolConstants.faculty_id}`, (req, res) => {
-    const facultyId = req.params[schoolConstants.faculty_id];
-    schoolModel.readSchools(facultyId).then(
+router.get(`/:${topicConstants.school_id}/topics`, (req, res) => {
+    const schoolId = req.params[topicConstants.school_id];
+    topicModel.readTopics(schoolId).then(
         (response) => responseHandler.sendResponseOkay(response, res),
         (err) => responseHandler.sendNotAcceptableResponse(err, res)
     );
