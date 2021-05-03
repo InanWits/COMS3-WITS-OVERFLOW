@@ -30,7 +30,7 @@ module.exports = {
             console.log(insertQuestion);
 
             db.getConnection().query(insertQuestion, (err) => {
-                   if (err) {
+                if (err) {
                     reject(err.message);
                 } else {
                     resolve("Question posted!");
