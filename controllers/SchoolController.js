@@ -16,4 +16,12 @@ router.post('/', (req, res) => {
     );
 });
 
+router.get(`/:${schoolConstants.faculty_id}`, (req, res) => {
+    const facultyId = req.params[schoolConstants.faculty_id];
+    schoolModel.readSchools(facultyId).then(
+        (response) => responseHandler.sendResponseOkay(response, res),
+        (err) => responseHandler.sendNotAcceptableResponse(err, res)
+    );
+});
+
 module.exports = router;
