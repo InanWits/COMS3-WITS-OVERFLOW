@@ -39,7 +39,26 @@ module.exports = {
         });
     },
 
-    readAllQuestions: async () => {
+    readAllQuestions: async (topicId) => {
+        return new Promise((resolve, reject) => {
 
+           const whereCondition = {
+               [questionConstants.topic_id] : topicId
+           };
+
+           const selectQuestion = queryHelper.buildSelectQuery(questionConstants.table_name, [], whereCondition);
+
+           console.log(selectQuestion);
+
+           db.getConnection().query(selectQuestion, (err, result) => {
+               if (err){
+                   reject(err.message);
+               }
+               else{
+                   resolve(result);
+               }
+           });
+
+        });
     }
 }
