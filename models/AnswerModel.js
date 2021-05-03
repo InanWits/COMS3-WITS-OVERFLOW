@@ -36,5 +36,28 @@ module.exports = {
                 }
             });
         });
+    },
+
+    readAnswers: async (questionId) => {
+        return new Promise((resolve, reject) => {
+
+            const whereCondition = {
+                [answerConstants.question_id] : questionId
+            };
+
+            const selectAnswers = queryHelper.buildSelectQuery(answerConstants.table_name, [], whereCondition);
+
+            console.log(selectAnswers);
+
+            db.getConnection().query(selectAnswers, (err, result) => {
+                if (err){
+                    reject(err.message);
+                }
+                else{
+                    resolve(result);
+                }
+            });
+
+        });
     }
 }
