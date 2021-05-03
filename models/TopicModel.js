@@ -30,5 +30,26 @@ module.exports = {
                 }
             });
         });
+    },
+
+    readTopics: async (schoolId) => {
+        return new Promise((resolve, reject) => {
+            const whereCondition = {
+                [topicConstants.school_id] : schoolId
+            };
+
+            const selectTopics = queryHelper.buildSelectQuery(topicConstants.table_name, [], whereCondition);
+
+            console.log(selectTopics);
+
+            db.getConnection().query(selectTopics, (err, result) => {
+                if (err){
+                    reject(err.message);
+                }
+                else{
+                    resolve(result);
+                }
+            });
+        });
     }
 }
