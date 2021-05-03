@@ -70,6 +70,8 @@ const CREATE_RATE_TABLE  = `create table ${rateConstants.table_name}(
     foreign key (${rateConstants.answer_id}) references ${answerConstants.table_name} (${answerConstants.answer_id}),
     foreign key (${rateConstants.student_id}) references ${studentConstants.table_name} (${studentConstants.student_id}))`;
 
+const INSERT_FACULTIES = `insert into ${facultyConstants.table_name}(${facultyConstants.faculty_name}) values ('Commerce,Law and Management'), ('Engineering'),
+    ('Humanities'), ('Science')`;
 
 module.exports = {
 
