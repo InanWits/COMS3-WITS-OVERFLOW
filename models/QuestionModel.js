@@ -37,5 +37,9 @@ module.exports = {
                 }
             });
         });
+    },
+
+    readAllQuestions: async () => {
+
     }
 }
