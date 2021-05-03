@@ -40,7 +40,7 @@ router.get(`/${questionConstants.topic_id}`, (req, res) => {
 });
 
 
-router.get(`/${questionConstants.question_id}/answers`, (req, res) => {
+router.get(`/:${questionConstants.question_id}/answers`, (req, res) => {
     const questionId = req.params[questionConstants.question_id];
 
     answerModel.readAnswers(questionId).then(
