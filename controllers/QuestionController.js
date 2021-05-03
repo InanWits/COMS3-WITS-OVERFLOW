@@ -1,4 +1,5 @@
 const questionModel = require('../models/QuestionModel');
+const answerModel = require('../models/AnswerModel');
 
 const questionConstants = require('../utils/constants/QuestionConstants');
 
