@@ -29,5 +29,20 @@ module.exports = {
                 }
             });
         });
+    },
+
+    readAllFaculties: async () => {
+        return new Promise((resolve, reject) => {
+            const selectAllFaculties = queryHelper.buildSelectQuery(facultyConstants.table_name);
+            console.log(selectAllFaculties);
+
+            db.getConnection().query(selectAllFaculties, (err, result) => {
+                if (err) {
+                    reject(err.message);
+                } else {
+                    resolve(result);
+                }
+            });
+        })
     }
 }
