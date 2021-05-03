@@ -87,11 +87,12 @@ module.exports = {
         database.getConnection().query(CREATE_FACULTY_TABLE, (err) => {
             console.log(err ? err.message : "faculty table created");
         });
+
         //pre-populated faculties on the faculty table
-        database.getConnection().query("INSERT into faculty(faculty_name)values('Commerce,Law and Management')");
-        database.getConnection().query("INSERT into faculty(faculty_name)values('Engineering')");
-        database.getConnection().query("INSERT into faculty(faculty_name)values('Humanities')");
-        database.getConnection().query("INSERT into faculty(faculty_name)values('Science')");
+        //sql: "INSERT into faculty(faculty_name)values('Commerce,Law and Management')"
+        database.getConnection().query(INSERT_FACULTIES, (err) => {
+            console.log(err ? err.message : "faculties inserted");
+        });
 
 
         database.getConnection().query(CREATE_SCHOOL_TABLE, (err) =>{
@@ -99,12 +100,9 @@ module.exports = {
         });
 
         //pre-populated school table
-        database.getConnection().query("INSERT into school(school_name,faculty_id)values('School of CompSci',4),('School of Mathematics',4),('School of Applied Mathematics',4)");
-        database.getConnection().query("INSERT into school(school_name,faculty_id)values('School of Accounting',1),('School of Law',1),('School of Economics',1)");
-        database.getConnection().query("INSERT into school(school_name,faculty_id)values('School of Civil Engineering',2)");
-        database.getConnection().query("INSERT into school(school_name,faculty_id)values('School of Education',3),('School of Arts',3)");
-
-
+        database.getConnection().query(INSERT_SCHOOLS, (err) => {
+            console.log(err ? err.message : "schools inserted");
+        });
 
         database.getConnection().query(CREATE_TOPIC_TABLE, (err) =>{
             console.log(err ? err.message : "topic table created");
