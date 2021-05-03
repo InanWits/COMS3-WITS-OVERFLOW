@@ -42,9 +42,9 @@ const StudentController = require('./controllers/StudentController');
 const AnswerController = require('./controllers/AnswerController');
 const QuestionController = require('./controllers/QuestionController');
 const RateController = require('./controllers/RateController');
-const TopicConstants = require('./controllers/TopicController');
-const FacultyConstants = require('./controllers/FacultyController');
-const SchoolConstants = require('./controllers/SchoolController');
+const TopicController = require('./controllers/TopicController');
+const FacultyController = require('./controllers/FacultyController');
+const SchoolController = require('./controllers/SchoolController');
 
 
 //bind routers to controllers.
@@ -52,9 +52,9 @@ app.use('/Students', StudentController);
 app.use('/Questions', QuestionController);
 app.use('/Answers', AnswerController);
 app.use('/Rates', RateController);
-app.use('/Topics', TopicConstants);
-app.use('/Faculties', FacultyConstants);
-app.use('/Schools', SchoolConstants);
+app.use('/Topics', TopicController);
+app.use('/Faculties', FacultyController);
+app.use('/Schools', SchoolController);
 
 //create the server
 const server = http.createServer(app);
