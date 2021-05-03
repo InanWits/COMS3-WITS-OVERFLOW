@@ -32,8 +32,8 @@ const CREATE_SCHOOL_TABLE =`create table ${schoolConstants.table_name}(
 
 const CREATE_TOPIC_TABLE = `create table ${topicConstants.table_name}(
     ${topicConstants.topic_id} int auto_increment,
-   ${topicConstants.school_id} int not null,
-     ${topicConstants.topic} text,
+    ${topicConstants.school_id} int not null,
+    ${topicConstants.topic} text unique not null,
     primary key(${topicConstants.topic_id}),
     foreign key (${topicConstants.school_id}) references ${schoolConstants.table_name} (${schoolConstants.school_id}))`;
 
