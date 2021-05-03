@@ -40,8 +40,6 @@ const CREATE_TOPIC_TABLE = `create table ${topicConstants.table_name}(
 const CREATE_QUESTION_TABLE = `create table ${questionConstants.table_name}(
     ${questionConstants.question_id} int auto_increment,
     ${questionConstants.student_id} int not null,
-    ${questionConstants.school_id} int not null,
-    ${questionConstants.faculty_id} int not null,
     ${questionConstants.topic_id} int not null,
     ${questionConstants.question} text,
     ${questionConstants.question_picture_url} text,
