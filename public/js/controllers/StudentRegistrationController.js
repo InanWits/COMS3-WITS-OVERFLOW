@@ -13,10 +13,10 @@ $(window).on('load', () => {
        //we get a promise after the request
        registerStudent(studentData).then(
            () => { //promise kept
-               alert("Sign up successful");
                location.href = "../index.html";
            },
            (err) => { //promise broken
+               alert(err.message);
                console.log(err);
            }
        );
