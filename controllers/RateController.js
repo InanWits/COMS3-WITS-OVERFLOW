@@ -11,13 +11,9 @@ const router = express.Router();
 router.post('/', (req, res) => {
     const answerJsonObj = req.body;
     answerModel.insertRate(answerJsonObj).then(
-        (response) => {
-            responseHandler.sendResponseOkay(response, res);
-        },
-        (err) => {
-            responseHandler.sendNotAcceptableResponse(err, res);
-        }
-    )
+        (response) => responseHandler.sendResponseOkay(response, res),
+        (err) => responseHandler.sendNotAcceptableResponse(err, res)
+    );
 });
 
 module.exports = router;

@@ -25,12 +25,8 @@ const router = express.Router();
 router.post('/', (req, res) => {
     const studentJsonObj = req.body;
     studentModel.insertStudent(studentJsonObj).then(
-        (response) => {
-            responseHandler.sendResponseOkay(response, res);
-        },
-        (err) => {
-            responseHandler.sendNotAcceptableResponse(err, res);
-        }
+        (response) => responseHandler.sendResponseOkay(response, res),
+        (err) => responseHandler.sendNotAcceptableResponse(err, res)
     )
 });
 
@@ -52,12 +48,8 @@ router.post(`/:${studentConstants.user_name}`, (req, res) => {
     req.body[studentConstants.user_name] = userName;
 
     studentModel.loginStudent(req.body).then(
-        (response) => {
-            responseHandler.sendResponseOkay(response, res);
-        },
-        (err) => {
-            responseHandler.sendNotAcceptableResponse(err, res);
-        }
+        (response) => responseHandler.sendResponseOkay(response, res),
+        (err) => responseHandler.sendNotAcceptableResponse(err, res)
     );
 });
 
@@ -89,13 +81,9 @@ router.post(`/:${studentConstants.user_name}`, (req, res) => {
 
 router.get('/', (req, res) => {
     studentModel.getAllStudents().then(
-        (response) => {
-            responseHandler.sendResponseOkay(response, res);
-        },
-        (err) => {
-            responseHandler.sendNotAcceptableResponse(err, res);
-        }
-    )
+        (response) => responseHandler.sendResponseOkay(response, res),
+        (err) => responseHandler.sendNotAcceptableResponse(err, res)
+    );
 });
 
 module.exports = router;
