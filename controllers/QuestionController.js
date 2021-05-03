@@ -44,12 +44,8 @@ router.get(`/${questionConstants.question_id}/answers`, (req, res) => {
     const questionId = req.params[questionConstants.question_id];
 
     answerModel.readAnswers(questionId).then(
-        (response) => {
-            responseHandler.sendResponseOkay(response, res);
-        },
-        (err) => {
-            responseHandler.sendNotAcceptableResponse(err, res);
-        }
+        (response) => responseHandler.sendResponseOkay(response, res),
+        (err) => responseHandler.sendNotAcceptableResponse(err, res)
     );
 });
 
