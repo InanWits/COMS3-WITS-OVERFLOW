@@ -9,23 +9,15 @@ const router = express.Router();
 router.post('/', (req, res) => {
     const answerJsonObj = req.body;
     facultyModel.insertFaculty(answerJsonObj).then(
-        (response) => {
-            responseHandler.sendResponseOkay(response, res);
-        },
-        (err) => {
-            responseHandler.sendNotAcceptableResponse(err, res);
-        }
+        (response) => responseHandler.sendResponseOkay(response, res),
+        (err) => responseHandler.sendNotAcceptableResponse(err, res)
     )
 });
 
 router.get('/', (req, res) => {
     facultyModel.readAllFaculties().then(
-        (response) => {
-            responseHandler.sendResponseOkay(response, res);
-        },
-        (err) => {
-            responseHandler.sendNotAcceptableResponse(err, res);
-        }
+        (response) => responseHandler.sendResponseOkay(response, res),
+        (err) => responseHandler.sendNotAcceptableResponse(err, res)
     );
 });
 
