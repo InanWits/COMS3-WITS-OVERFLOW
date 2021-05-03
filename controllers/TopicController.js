@@ -23,7 +23,7 @@ router.post('/', (req, res) => {
 
 
 
-router.get(`/:${questionConstants.topic_id}/Questions`, (req, res) => {
+router.get(`/:${questionConstants.topic_id}/questions`, (req, res) => {
     const topicId = req.params[questionConstants.topic_id];
     questionModel.readAllQuestions(topicId).then(
         (response) => responseHandler.sendResponseOkay(response, res),
