@@ -1,6 +1,7 @@
 const topicEndPoint = 'Topics';
 
-const createTopic = (TopicData) => {
-    return sendPostRequest(topicEndPoint, TopicData);
+const readTopicQuestions = (TopicId) => {
+    const endPoint = `${topicEndPoint}/${TopicId}/questions`;
+    return sendGetRequest(endPoint);
 };
 
