@@ -30,5 +30,28 @@ module.exports = {
                 }
             });
         });
+    },
+
+    readSchools: async (facultyId) => {
+        return new Promise((resolve, reject) => {
+
+            const whereCondition = {
+                [schoolConstants.faculty_id] : facultyId
+            };
+
+            const selectSchools = queryHelper.buildSelectQuery(schoolConstants.table_name, [], whereCondition);
+
+            console.log(selectSchools);
+
+            db.getConnection().query(selectSchools, (err, result) => {
+                if (err){
+                    reject(err.message);
+                }
+                else{
+                    resolve(result);
+                }
+            });
+
+        });
     }
 }
