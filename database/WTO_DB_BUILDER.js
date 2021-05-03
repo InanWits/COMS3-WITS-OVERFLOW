@@ -46,8 +46,6 @@ const CREATE_QUESTION_TABLE = `create table ${questionConstants.table_name}(
     ${questionConstants.post_date_time} timestamp not null default current_timestamp,
     primary key (${questionConstants.question_id}),
     foreign key (${questionConstants.student_id}) references ${studentConstants.table_name}(${studentConstants.student_id}),
-    foreign key (${questionConstants.school_id}) references ${schoolConstants.table_name}(${schoolConstants.school_id}),
-    foreign key (${questionConstants.faculty_id}) references ${facultyConstants.table_name}(${facultyConstants.faculty_id}),
     foreign key (${questionConstants.topic_id}) references ${topicConstants.table_name}(${topicConstants.topic_id}))`;
 
 
