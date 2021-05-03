@@ -34,5 +34,30 @@ router.post('/', (req, res) => {
     );
 });*/
 
+router.get(`/${questionConstants.topic_id}`, (req, res) => {
+    const topicId = req.params[questionConstants.topic_id];
+    questionModel.readAllQuestions(topicId).then(
+        (response) => {
+            responseHandler.sendResponseOkay(response, res);
+        },
+        (err) => {
+            responseHandler.sendNotAcceptableResponse(err, res);
+        }
+    );
+});
+
+
+router.get(`/${questionConstants.question_id}/answers`, (req, res) => {
+    const questionId = req.params[questionConstants.question_id];
+
+    answerModel.readAnswers(questionId).then(
+        (response) => {
+            responseHandler.sendResponseOkay(response, res);
+        },
+        (err) => {
+            responseHandler.sendNotAcceptableResponse(err, res);
+        }
+    );
+});
 
 module.exports = router;
