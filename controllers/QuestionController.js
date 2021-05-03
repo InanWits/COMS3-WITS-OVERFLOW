@@ -12,12 +12,8 @@ const router = express.Router();
 router.post('/', (req, res) => {
     const questionJsonObj = req.body;
     questionModel.insertQuestion(questionJsonObj).then(
-        (response) => {
-            responseHandler.sendResponseOkay(response, res);
-        },
-        (err) => {
-            responseHandler.sendNotAcceptableResponse(err, res);
-        }
+        (response) => responseHandler.sendResponseOkay(response, res),
+        (err) => responseHandler.sendNotAcceptableResponse(err, res)
     )
 });
 
@@ -38,12 +34,8 @@ router.post('/', (req, res) => {
 router.get(`/${questionConstants.topic_id}`, (req, res) => {
     const topicId = req.params[questionConstants.topic_id];
     questionModel.readAllQuestions(topicId).then(
-        (response) => {
-            responseHandler.sendResponseOkay(response, res);
-        },
-        (err) => {
-            responseHandler.sendNotAcceptableResponse(err, res);
-        }
+        (response) => responseHandler.sendResponseOkay(response, res),
+        (err) => responseHandler.sendNotAcceptableResponse(err, res)
     );
 });
 
