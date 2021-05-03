@@ -1,7 +1,5 @@
 const facultyModel = require('../models/FacultyModel');
 
-const facultyConstants = require('../utils/constants/FacultyConstants');
-
 const responseHandler = require('../utils/services/ResponseHandler');
 
 const express = require('express');
@@ -18,6 +16,17 @@ router.post('/', (req, res) => {
             responseHandler.sendNotAcceptableResponse(err, res);
         }
     )
+});
+
+router.get('/', (req, res) => {
+    facultyModel.readAllFaculties().then(
+        (response) => {
+            responseHandler.sendResponseOkay(response, res);
+        },
+        (err) => {
+            responseHandler.sendNotAcceptableResponse(err, res);
+        }
+    );
 });
 
 module.exports = router;
