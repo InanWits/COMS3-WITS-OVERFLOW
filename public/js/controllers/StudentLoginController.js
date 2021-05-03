@@ -12,11 +12,13 @@ $(window).on('load', () => {
 
         //we get a promise after the request
         loginStudent(studentData.user_name, studentData).then(
-            () => { //promise kept
-                alert("Login successful");
-                location.href = "html/StudentHomepage.html";
+            (studentId) => { //promise kept
+                location.href = "html/Homepage.html";
+                //save student Id in local storage
+                localStorage.setItem(KEY_STUDENT_ID, studentId.toString());
             },
             (err) => { //promise broken
+                alert(err.message)
                 console.log(err);
             }
         );
