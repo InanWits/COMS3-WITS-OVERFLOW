@@ -30,6 +30,12 @@ app.use(express.json());
 //make the public folder have public access
 app.use(express.static(path.join(__dirname, '/public')));
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 //redirect server to index page when user opens server ip address on webpage
 app.get('/', (req, res) => {
    res.sendFile('public/index.html', {
