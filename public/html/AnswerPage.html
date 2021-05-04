@@ -78,30 +78,129 @@
       
 
       <div class="questionbox">
+        <br>
 
         <h3>#Some explanation of the question#</h3><br>
         <!--<button>testing</button><br>-->
-        <textarea name="questionarea" rows="8" cols="114" readonly>#code is here or picture of question#</textarea>
+        <textarea name="questionarea" style="box-shadow: 0 10px 10px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); resize: none; background-color: rgb(235, 235, 235); color:black; box-shadow: grey; border: none;" rows="8" cols="114" readonly>#code is here or picture of question#</textarea>
+        <br><br>
+        <div class= qbox style="display: inline-block">
+         <!-- <div class="votebox" style="display: inline-block;">
+            <h3>Answer</h3>
+            <div class="vote up">
+              <a class="fa fa-angle-up"></a>
+            </div>
+            <div class="stat">
+              <span class="score">0 
+              <span class="badge">+0</span>
+            <div class="vote inactive">
+              <a class="fa fa-angle-down"></a>
+            </div>
+          </div>-->
+          <h3>#Answer#</h3><br>
+          <textarea name="questionarea2" style= "box-shadow: 0 10px 10px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); resize: none; background-color: rgb(235, 235, 235); color:black; box-shadow: grey; border: none;" rows="8" cols="114" readonly>#code is here or picture of question#</textarea>
+          <br><br><button>Upvote</button>
+          <button>Downvote</button>
+          <p>Rating: +100</p>
+          <br><br>
+        </div>
+
+        <h3>Add New Answer</h3><br>
+        <div class="toolbar">
+          <ul class="tool-list">
+            <li class="tool">
+              <button 
+                type="button" 
+                data-command='justifyLeft'
+                class="tool--btn">
+                <i class=' fas fa-align-left'></i>
+              </button>
+            </li>
+            <li class="tool">
+              <button 
+                type="button" 
+                data-command='justifyCenter' 
+                class="tool--btn">
+                <i class=' fas fa-align-center'></i>
+              </button>
+            </li>
+            <li class="tool">
+              <button 
+                type="button" 
+                data-command="bold" 
+                class="tool--btn">
+                <i class=' fas fa-bold'></i>
+              </button>
+            </li>
+            <li class="tool">
+              <button 
+                type="button" 
+                data-command="italic"
+                class="tool--btn">
+                <i class=' fas fa-italic'></i>
+              </button>
+            </li>
+            <li class="tool">
+              <button 
+                type="button" 
+                data-command="underline"
+                class="tool--btn">
+                <i class=' fas fa-underline'></i>
+              </button>
+            </li>
+            <li class="tool">
+              <button 
+                type="button" 
+                data-command="insertOrderedList"
+                class="tool--btn">
+                <i class=' fas fa-list-ol'></i>
+              </button>
+            </li>
+            <li class="tool">
+              <button 
+                type="button" 
+                data-command="insertUnorderedList"
+                class="tool--btn">
+                <i class=' fas fa-list-ul'></i>
+              </button>
+            </li>
+            <li class="tool">
+              <button 
+                type="button" 
+                data-command="createlink" 
+                class="tool--btn">
+                <i class=' fas fa-link'></i>
+              </button>
+            </li>
+          </ul>
+        </div>
         
-        <div class="votebox">
-          <h3>Answer</h3>
-          <div class="vote up">
-            <a class="fa fa-angle-up"></a>
-          </div>
-          <div class="stat">
-            <span class="score">0
-            <span class="badge">+0</span>
-          <div class="vote inactive">
-            <a class="fa fa-angle-down"></a>
-          </div>
-        </div><br><br>
+        <div id="output" contenteditable="true"></div>
+        <br>
 
+        <button>+ Add Answer</button><br>
+        <br>
 
-        <button>+ Add Answer</button>
+        <!--textarea name="questionarea" rows="8" cols="114" readonly>#code is here or picture of question#</textarea>-->
 
       </div>
 
-    
+    <script>
+      let output = document.getElementById('output');
+    let buttons = document.getElementsByClassName('tool--btn');
+for (let btn of buttons) {
+	btn.addEventListener('click', () => {
+		let cmd = btn.dataset['command'];
+		if(cmd === 'createlink') {
+			let url = prompt("Enter the link here: ", "http:\/\/");
+			document.execCommand(cmd, false, url);
+		} else {
+			document.execCommand(cmd, false, null);
+		}
+	})
+}
+
+    </script>
       
       <!--<div class="tab">
         <button class="tablinks" onclick="openSubject(event, 'cs')" id="defaultOpen">Faculty of Science</button>
