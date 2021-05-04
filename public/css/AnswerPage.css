@@ -396,16 +396,17 @@ label #cancel{
 /*question box*/
 .questionbox{
     position: absolute;
-    top: 200%;
+    top: 230%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: left;
     width: 100%;
-    height: 360px;
+    height: 480px;
     padding: 0 40px 40px; /*padding with 0px changed to fit that div content*/
     z-index: -2;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    display: inline-flexbox;
   }
   .questionbox .text{
     font-size: 40px;
@@ -419,14 +420,17 @@ label #cancel{
     color: #202020;
   }
 
+  .qbox{
+  }
+
   /*upvote and downvote*/
   .votebox{
-    width: 100%;
+    width: 10%;
     margin-top: 20px;
     margin-left: 0px;
     text-align:left;
     top: 80%;
-    border-top: 1px solid black;
+    border-top: 0px solid black;
   }
   .vote{
     font-size:36px;
@@ -456,3 +460,41 @@ label #cancel{
   .questionarea{
     color: lightgray;
   }
+
+.toolbar {}
+.tool-list {
+	display: flex;
+	flex-flow: row nowrap;
+	list-style: none;
+	padding: 0;
+	margin: 0rem;
+	overflow: hidden;
+	border-radius: 10px;
+}
+.tool {}
+.tool--btn {
+	display: block;
+	border: none;
+	padding: .5rem;
+	font-size: 20px;
+}
+
+#output {
+	height: 200px; 
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	margin-top: 1rem;
+	padding: 0rem;
+}
+
+/* trying */
+
+p strong {
+  display: block;
+}
+h3 {
+  width: auto;
+  border-bottom: 5px solid black;
+}
+h2 {
+  border-bottom: 2px solid #c5e1a5;
+}
