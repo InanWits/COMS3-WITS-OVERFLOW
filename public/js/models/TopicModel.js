@@ -5,3 +5,6 @@ const readTopicQuestions = (TopicId) => {
     return sendGetRequest(endPoint);
 };
 
+const insertTopic = (TopicData) => {
+  return sendPostRequest(topicEndPoint, TopicData);
+};
