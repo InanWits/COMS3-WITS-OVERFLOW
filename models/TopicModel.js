@@ -22,11 +22,11 @@ module.exports = {
 
             console.log(insertTopic);
 
-            db.getConnection().query(insertTopic, (err) => {
+            db.getConnection().query(insertTopic, (err, result) => {
                 if (err) {
                     reject(err.message);
                 } else {
-                    resolve("Topic posted!");
+                    resolve(result.insertId);
                 }
             });
         });
