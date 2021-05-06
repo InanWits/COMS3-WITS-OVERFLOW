@@ -18,7 +18,7 @@ $(window).on('load', () => {
                 localStorage.setItem(KEY_STUDENT_ID, studentId.toString());
             },
             (err) => { //promise broken
-                alert(err.message)
+                alert(err.responseText);
                 console.log(err);
             }
         );
