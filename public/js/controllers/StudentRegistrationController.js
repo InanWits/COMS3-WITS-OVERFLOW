@@ -16,7 +16,7 @@ $(window).on('load', () => {
                location.href = "../index.html";
            },
            (err) => { //promise broken
-               alert(err.message);
+               alert(err.responseText);
                console.log(err);
            }
        );
