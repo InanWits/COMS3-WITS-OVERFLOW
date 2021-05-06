@@ -5,45 +5,60 @@
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover" />
     <title>WitsOverFlow</title>
 
+    <!--removes margins and paddings from all dom elements(<p>, <div>, <body>, etc)-->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="../js/utils/constants/Constants.js"></script>
     <script src="../js/api/constants/RequestConstants.js"></script>
     <script src="../js/api/REST_API.js"></script>
 
     <link rel="stylesheet" href="../css/WTOTemplate.css">
-    <script src="../js/models/FacultyModel.js"></script>
-    <script src="../js/controllers/HomePageController.js"></script>
 
+    <script src="../js/controllers/HomePageController.js"></script>
 
 </head>
 <body>
 
+
+
+
     <header>
-
+        <img id="nav-button" src="../img/ic_menu_nav.svg" alt="">
+        <img id="search-button" src="../img/ic_search.svg" alt="">
     </header>
-    <section>
-        <div id="faculty-container">
-            <div class="card-view">
-                <p>Faculty Name</p>
-            </div>
 
-            <div class="card-view">
-                <p>Faculty Name</p>
-            </div>
+    <aside id="nav">
 
-            <div class="card-view">
-                <p>Faculty Name</p>
-            </div>
+        <a class="aside-title" href="HomePage.html">Wits OverFlow</a>
 
-            <div class="card-view">
-                <p>Faculty Name</p>
-            </div>
+        <div id="aside-back">
+            <img class="icon" src="../img/ic_chevron_left_black.svg" alt="">
         </div>
 
+        <div class="aside-item" data-target-url="html/Questions.html">
+            <img class="icon" src="../img/ic_questions.svg" alt=""> <p>Questions</p>
+        </div>
+
+        <div class="aside-item" data-target-url="html/AskQuestion.html">
+            <img class="icon" src="../img/ic_ask_questions.svg" alt=""> <p>Ask Question</p>
+        </div>
+
+    </aside>
+
+    <section style="flex: 1;" >
+        <iframe id="content-holder"></iframe>
     </section>
 
-    <footer>
-
-    </footer>
 </body>
 </html>
