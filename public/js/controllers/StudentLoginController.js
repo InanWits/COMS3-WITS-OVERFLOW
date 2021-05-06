@@ -13,7 +13,7 @@ $(window).on('load', () => {
         //we get a promise after the request
         loginStudent(studentData.user_name, studentData).then(
             (studentId) => { //promise kept
-                location.href = "html/Homepage.html";
+                location.href = "html/HomePage.html";
                 //save student Id in local storage
                 localStorage.setItem(KEY_STUDENT_ID, studentId.toString());
             },
