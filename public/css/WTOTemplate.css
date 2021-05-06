@@ -1,3 +1,167 @@
+/*load up the fonts*/
+@font-face {
+    font-family: 'open_sans'; /*created a name for the font*/
+    src: url("../fonts/OpenSans-Regular.ttf") format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    font-family: open_sans, sans-serif; /*font to be applied to all text, sans-serif(is a backup font)*/
+}
+
+.icon{
+    filter: invert(45%);
+}
+/*create color vars*/
+:root{
+    --primary-color         :#01579b;
+    --dark-primary-color    :#002f6c;
+    --light-primary-color   :#4f83cc;
+    --window-color          :white;
+    --primary-text-color    : #212121;
+    --text-primary-color    :white;
+    --section-divider       : #e7e7e7;
+    --secondary-text-color  : #959393;
+}
+/*default styles*/
+html, body{
+    height: 100%;
+    width: 100%;
+    /*prevents scrollbars from appearing*/
+}
+
+/*layout stying*/
+header{
+    height: 80px;
+    border-bottom: 1px solid var(--section-divider);
+    background: var(--window-color);
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    transition: 0.3s;
+}
+
+#content-holder{
+    flex: 1;
+    padding: 16px;
+    border: none;
+}
+
+aside{
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow-x: auto;
+    position: fixed;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    background: var(--window-color);
+    transition: 0.2s;
+}
+
+section{
+    transition: 0.3s;
+    display: flex;
+    background: var(--window-color);
+}
+/*styling for aside content*/
+.aside-title, .title{
+    font-size: 30px;
+    margin-top: 32px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: var(--dark-primary-color);
+}
+
+.title{
+    margin-top: 0;
+}
+
+#aside-back{
+    border-left: 1px solid var(--section-divider);
+    border-top: 1px solid var(--section-divider);
+    border-bottom: 1px solid var(--section-divider);
+    margin-top: 64px;
+    height: 30px;
+    width: 27px;
+    display: flex;
+    align-items: center;
+    justify-items: right;
+    margin-left: auto;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+#aside-back *{
+    margin-left: auto;
+}
+
+#aside-back:hover{
+    background: var(--dark-primary-color);
+    transform: scale(1.1);
+}
+
+#aside-back:hover img{
+    filter: invert(1);
+}
+/*style for aside-item and when aside item is selected*/
+.aside-item, .aside-item-selected{
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 56px;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.aside-item:hover{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.aside-item *, .aside-item-selected *{ /*reference all items inside the aside-item class*/
+    display: inline-block;
+}
+
+.aside-item p, .aside-item-selected p{
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 18px;
+    color: var(--secondary-text-color);
+}
+
+.aside-item-selected{
+    border-left: 4px solid var(--dark-primary-color);
+}
+
+.aside-item-selected .icon{
+    filter: invert(0);
+}
+
+.aside-item-selected p{
+    color: var(--primary-text-color);
+}
+
+#nav-button, #search-button{
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#nav-button:hover, #search-button:hover{
+    transform: scale(1.3);
+}
+
+#search-button{
+    margin-left: 16px;
+}
+
 .card-view{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -8,4 +172,52 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin: 4px;
+}
+
+.extended-fab, .fab{
+    height: 56px;
+    border-radius: 28px;
+    margin: 8px;
+    padding-right: 16px;
+    padding-left: 16px;
+    background: var(--dark-primary-color);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border: none;
+    display: inline-flex;
+    color: var(--text-primary-color);
+    align-items: center;
+    justify-content: center;
+}
+
+.extended-fab:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    background: var(--light-primary-color);
+    transform: scale(1.1);
+    cursor: pointer;
+    color: var(--primary-text-color);
+}
+
+.fab{
+    height: 56px;
+    width: 56px;
+    padding: 0;
+    border-radius: 50%;
+    background: var(--dark-primary-color);
+}
+
+/*styles for select block*/
+div.select-block{
+    margin-left: 16px;
+    margin-right: 16px;
+    padding-top: 16px;
+}
+
+div.select-block label{
+    color: var(--light-primary-color);
+}
+
+div.select-block select{
+    margin-left: 8px;
+    outline: none;
 }

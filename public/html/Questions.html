@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Questions</title>
+
+    <link rel="stylesheet" href="../css/WTOTemplate.css">
+    <link rel="stylesheet" href="../css/Question.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="../js/utils/constants/Constants.js"></script>
+    <script src="../js/api/constants/RequestConstants.js"></script>
+    <script src="../js/api/REST_API.js"></script>
+
+    <script src="../js/controllers/QuestionController.js"></script>
+    <script src="../js/models/FacultyModel.js"></script>
+    <script src="../js/models/SchoolModel.js"></script>
+    <script src="../js/models/TopicModel.js"></script>
+    <script src="../js/models/QuestionModel.js"></script>
+</head>
+<body>
+    <p class="title">Questions</p>
+
+    <div class="select-block">
+        <label for="select-faculty">Faculty</label>
+        <select id="select-faculty"></select>
+    </div>
+
+    <div class="select-block">
+        <label for="select-school">School</label>
+        <select id="select-school"></select>
+    </div>
+
+    <div class="select-block">
+        <label for="select-topic">Topic</label>
+        <select id="select-topic"></select>
+    </div>
+
+    <div id="questions-container">
+        <div class="question-view">
+            Question here
+        </div>
+        <div class="question-view">
+            Question here
+        </div>
+    </div>
+</body>
+</html>

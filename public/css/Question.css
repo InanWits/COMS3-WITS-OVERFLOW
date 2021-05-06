@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.select-block{
+    display: inline-block;
+}
+
+#questions-container{
+    display: block;
+    padding-top: 16px;
+    overflow-x: auto;
+}
+
+.question-view{
+    padding: 16px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--section-divider);
+    transition: 0.3s;
+}
+
+.question-view:hover{
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    color: var(--light-primary-color);
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover" />
+
+    <title>AskQuestion</title>
+
+    <link rel="stylesheet" href="../css/WTOTemplate.css">
+    <link rel="stylesheet" href="../css/AskQuestion.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="../js/utils/constants/Constants.js"></script>
+    <script src="../js/api/constants/RequestConstants.js"></script>
+    <script src="../js/api/REST_API.js"></script>
+
+    <script src="../js/controllers/AskQuestionController.js"></script>
+    <script src="../js/models/FacultyModel.js"></script>
+    <script src="../js/models/SchoolModel.js"></script>
+    <script src="../js/models/TopicModel.js"></script>
+    <script src="../js/models/QuestionModel.js"></script>
+</head>
+
+<body>
+
+    <p class="title">Ask Question</p>
+
+    <div class="option-selection"> <!--Faculty selection-->
+        <p>Select faculty</p>
+        <div id="faculties-holder">
+
+            <!--<div class="extended-fab">
+                Science
+            </div>
+
+            <div class="extended-fab">
+                Health
+            </div>-->
+
+        </div>
+    </div>
+
+    <div class="option-selection">
+        <p>Select School</p>
+        <div id="schools-holder">
+            <!--<div class="extended-fab">
+                Science
+            </div>
+
+            <div class="extended-fab">
+                Health
+            </div>-->
+        </div>
+    </div>
+
+    <div class="option-selection">
+        <p>Select Topic</p>
+        <div id="topics-holder">
+            <!--<div class="extended-fab">
+                Science
+            </div>
+
+            <div class="extended-fab">
+                Health
+            </div>-->
+        </div>
+        <div id="create-topic">Create a new topic</div>
+    </div>
+
+    <div class="option-selection">
+        <p>Question</p>
+
+        <label class="text-input">
+            <textarea id="in-question"></textarea>
+        </label>
+
+        <div id="create-question">Post Question</div>
+    </div>
+
+
+</body>
+</html>

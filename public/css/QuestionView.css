@@ -1,0 +1,93 @@
+#question-text{
+    color: var(--dark-primary-color);
+    padding: 16px;
+    text-wrap: normal;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+header{
+    border-bottom: none;
+}
+
+section{
+    flex-direction: column;
+}
+
+.answers-label{
+    font-size: 25px;
+    font-weight: lighter;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 32px;
+    color: var(--secondary-text-color);
+}
+
+hr{
+    margin-left: 16px;
+    margin-right: 16px;
+    border-bottom: 1px solid var(--section-divider);
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+
+.option-selection{
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.option-selection p{
+    font-size: 22px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    color: var(--dark-primary-color);
+}
+
+.answer-view{
+    padding: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+    cursor: default;
+    border-bottom: 1px solid var(--section-divider);
+    transition: 0.3s;
+}
+
+/*not really sure if we need it
+.answer-view:hover{
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    color: var(--light-primary-color);
+}*/
+
+#create-answer {
+    height: 46px;
+    border-radius: 28px;
+    margin: 8px;
+    padding-right: 16px;
+    padding-left: 16px;
+    background: var(--primary-text-color);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border: none;
+    display: inline-flex;
+    color: var(--text-primary-color);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#create-answer:hover{
+    transform: scale(1.01);
+    background: var(--primary-color);
+}
+
+.text-input{
+    width: 100%;
+}
+
+.text-input textarea{
+    width: 99%;
+    height: 200px;
+    resize: vertical;
+}

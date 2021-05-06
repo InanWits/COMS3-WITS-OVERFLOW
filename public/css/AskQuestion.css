@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.option-selection p{
+    font-size: 22px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    color: var(--dark-primary-color);
+}
+
+
+.extended-fab, .extended-fab-selected{
+    height: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background: var(--window-color);
+    color: var(--primary-text-color);
+}
+
+.extended-fab:hover, .extended-fab-selected{
+    background: var(--dark-primary-color);
+    color: var(--window-color);
+    transform: scale(1.05);
+}
+
+.extended-fab-selected{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transform: scale(1.05);
+}
+
+#topics-holder .extended-fab, #topics-holder .extended-fab-selected{
+    width: 85%;
+}
+
+#topics-holder .extended-fab:hover, #topics-holder .extended-fab-selected{
+    transform: scale(1.01);
+}
+
+#create-topic, #create-question{
+    height: 46px;
+    border-radius: 28px;
+    margin: 8px;
+    padding-right: 16px;
+    padding-left: 16px;
+    background: var(--primary-text-color);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border: none;
+    display: inline-flex;
+    color: var(--text-primary-color);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#create-topic:hover, #create-question:hover{
+    transform: scale(1.01);
+    background: var(--primary-color);
+}
+
+.text-input{
+    width: 100%;
+}
+
+.text-input textarea{
+    width: 99%;
+    height: 200px;
+    resize: vertical;
+}
