@@ -28,11 +28,11 @@ module.exports = {
 
             console.log(insertAnswer);
 
-            db.getConnection().query(insertAnswer, (err) => {
+            db.getConnection().query(insertAnswer, (err, result) => {
                 if (err) {
                     reject(err.message);
                 } else {
-                    resolve("Answer posted!");
+                    resolve(result.insertId);
                 }
             });
         });
