@@ -1,0 +1,26 @@
+const dotenv = require('dotenv');
+const {afterAll, beforeAll, test} = require("@jest/globals");
+
+const database = require("../../utils/services/database");
+
+const facultyModel = require("../../models/FacultyModel");
+
+beforeAll(async (done) => {
+    dotenv.config();
+    database.connectToDatabase().then(() => { done(); },
+        () => { done(); });
+});
+
+test("test_read_faculties", () => {
+    facultyModel.readAllFaculties().then((result) => {
+        expect(result).not.toBe(null);
+    })
+});
+
+
+/*
+
+afterAll(async () => {
+    await database.getConnection().end();
+});*/
+
