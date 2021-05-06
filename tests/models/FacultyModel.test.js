@@ -11,6 +11,10 @@ beforeAll(async (done) => {
         () => { done(); });
 });
 
+afterAll(async () => {
+    await database.getConnection().end();
+});
+
 test("test_read_faculties", () => {
     facultyModel.readAllFaculties().then((result) => {
         expect(result).not.toBe(null);
