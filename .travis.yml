@@ -10,7 +10,7 @@ notification:
   email: false
 
 before_install:
-  - mysql -e 'DROP DATABASE IF EXISTS witsoverflow;'
+
   - mysql -e 'CREATE DATABASE witsoverflow;'
 
 after_success:
