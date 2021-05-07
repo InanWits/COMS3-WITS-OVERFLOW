@@ -8,7 +8,8 @@ cache:
 
 notification:
   email: false
-
+services:
+  -mysql
 before_install:
 
  -mysql -e 'DROP DATABASE IF EXISTS witsoverflow';
