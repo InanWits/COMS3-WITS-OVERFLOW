@@ -14,6 +14,21 @@ beforeAll(async (done) => {
     database.connectToDatabase().then(
         () => {
             databaseBuilder.createDatabase();
+            const studentData = {
+                [studentConstants.student_id] : 1234,
+                [studentConstants.user_name] : "surp10",
+                [studentConstants.first_name] :"surp",
+                [studentConstants.last_name] :"lastname",
+                [studentConstants.email] :"sesona@gmail.com",
+                [studentConstants.date_of_birth] :"2000-06-21",
+                [studentConstants.password] :"123456"
+            };
+
+            studentModel.insertStudent(studentData).then(
+                (user_name) => {
+                    expect(user_name).not.toBe(null);
+                });
+
             done();
         },
         () => { done(); });
@@ -43,7 +58,6 @@ test("insertStudent_validDataAsInput_StudentInserted", () => {
 test("insertStudent_invalidDataAsInput_StudentInsertFailed", () => {
     const studentData = {
         [studentConstants.student_id] : 1626,
-        //[studentConstants.user_name] : "sesona08",
          'sid' : "sesona08",
         [studentConstants.first_name] :"sesona",
         [studentConstants.last_name] :"lastname",
@@ -58,3 +72,5 @@ test("insertStudent_invalidDataAsInput_StudentInsertFailed", () => {
             expect(err).not.toBe(null);
         });
 });
+
+
