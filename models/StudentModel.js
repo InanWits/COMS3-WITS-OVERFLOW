@@ -46,7 +46,7 @@ module.exports = {
         });
     },
 
-    getAllStudents: async () => {
+    /*getAllStudents: async () => {
         return new Promise((resolve, reject) => {
             const getAllStudents = queryHelper.buildSelectQuery(studentConstants.table_name);
 
