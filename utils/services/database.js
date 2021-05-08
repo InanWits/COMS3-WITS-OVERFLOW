@@ -12,14 +12,15 @@ module.exports = {
                database: process.env.DATABASE
            });
 
-           connection.connect((err) => {
-               if (err){
+           connection.connect(() => {
+               /*if (err){
                    console.log(err.message);
                    reject();
                }
                else{
                    resolve();
-               }
+               }*/
+               resolve()
            });
         });
     },
