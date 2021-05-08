@@ -25,12 +25,10 @@ afterAll(async () => {
 
 test("insertQuestion_validDataAsInput_questionInserted", () => {
     const questionData = {
-        [questionConstants.student_id] : 1626,
+        [questionConstants.student_id] : 16263445,
         [questionConstants.topic_id] : 1,
         [questionConstants.question] :"some question",
-        //We need confirmation here
-        [questionConstants.question_picture_url] : "wwefghhyjyjugg",
-        //[questionConstants.post_date_time] : "2021-05-08 11:33:04"
+        [questionConstants.question_picture_url] : "wwefghhyjyjugg"
     };
 
     QuestionModel.insertQuestion(questionData).then(
@@ -45,7 +43,6 @@ test("insertQuestion_invalidDataAsInput_QuestionInsertFailed", () => {
         [questionConstants.topic_id] : 1,
         [questionConstants.question] :"some question",
         [questionConstants.question_picture_url] : "wwefghhyjyjugg",
-        [questionConstants.post_date_time] : "2021-05-08 11:33:04"
     };
 
     QuestionModel.insertQuestion(questionData).then(
