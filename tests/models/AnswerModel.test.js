@@ -28,9 +28,7 @@ test("insertAnswer_validDataAsInput_AnswerInserted", () => {
         [answerConstants.student_id] : 1626,
         [answerConstants.question_id] : 1,
         [answerConstants.answer] :"some answer",
-        //We need confirmation here
         [answerConstants.answer_picture_url] : "wwefghhyjyjugg"
-        //[answerConstants.post_date_time] : "2021-05-08 11:33:04"
     };
 
     answerModel.insertAnswer(answerData).then(
@@ -53,3 +51,5 @@ test("insertAnswer_invalidDataAsInput_AnswerInsertFailed", () => {
             expect(err).not.toBe(null);
         });
 });
+
+
