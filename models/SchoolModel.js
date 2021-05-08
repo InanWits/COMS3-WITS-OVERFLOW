@@ -7,14 +7,14 @@ const queryHelper = require('../helpers/QueryHelper');
 
 module.exports = {
 
-    insertSchool: async (SchoolJsonObject) => {
-        /*
+   /* insertSchool: async (SchoolJsonObject) => {
+        /!*
         *SchoolJsonObject is a json object in this format
         * {
         *school_name : "name of school?"
         * faculty_id : "faculty id"
         *}
-        * */
+        * *!/
         return new Promise((resolve, reject) => {
 
             const columnsToBeInserted = [schoolConstants.school_name, schoolConstants.faculty_id];
@@ -30,7 +30,7 @@ module.exports = {
                 }
             });
         });
-    },
+    },*/
 
     readSchools: async (facultyId) => {
         return new Promise((resolve, reject) => {
