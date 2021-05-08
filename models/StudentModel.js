@@ -65,7 +65,7 @@ module.exports = {
                 }
             });
         });
-    },
+    },*/
 
     loginStudent: async (StudentJsonObject) => {
         return new Promise((resolve, reject) => {
