@@ -43,7 +43,7 @@ test("insertTopic_invalidDataAsInput_topicInsertFailed", () => {
 
     topicModel.insertTopic(topicData).then(
         () => {}, //for success
-        (err) => {
+        (err) => { //for error
             expect(err).not.toBe(null);
         });
 });

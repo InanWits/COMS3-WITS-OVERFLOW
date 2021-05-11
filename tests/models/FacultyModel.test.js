@@ -18,13 +18,7 @@ afterAll(async () => {
 test("test_read_faculties", () => {
     facultyModel.readAllFaculties().then((result) => {
         expect(result).not.toBe(null);
+        expect(result.size()).toBeGreaterThan()
     })
 });
-
-
-/*
-
-afterAll(async () => {
-    await database.getConnection().end();
-});*/
 
