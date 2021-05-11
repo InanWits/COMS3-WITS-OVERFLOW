@@ -51,3 +51,11 @@ test("insertQuestion_invalidDataAsInput_QuestionInsertFailed", () => {
             expect(err).not.toBe(null);
         });
 });
+
+test("readAllQuestions_Available", () => {
+    QuestionModel.readAllQuestions().then((result) => {
+
+        expect(result).not.toBe(null);
+
+    })
+});
