@@ -73,4 +73,31 @@ test("insertStudent_invalidDataAsInput_StudentInsertFailed", () => {
         });
 });
 
+test("loginStudent_validDataAsInput_StudentLoggedIn", () => {
 
+    const loginData = {
+
+        [studentConstants.user_name] : "surp10",
+        [studentConstants.password] :"123456"
+    };
+
+    studentModel.loginStudent(loginData).then(
+        (user_name) => {
+            expect(user_name).not.toBe(null);
+        });
+});
+
+test("loginStudent_InvalidDataAsInput_StudentNotLoggedIn", () => {
+
+    const loginData = {
+
+        [studentConstants.user_name] : "surp10",
+        [studentConstants.password] :"12345667"
+    };
+
+    studentModel.loginStudent(loginData).then(
+        () => {}, //for success
+        (err) => {
+            expect(err).not.toBe(null);
+        });
+});
