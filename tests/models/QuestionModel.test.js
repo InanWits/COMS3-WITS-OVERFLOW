@@ -53,7 +53,7 @@ test("insertQuestion_invalidDataAsInput_QuestionInsertFailed", () => {
 });
 
 test("readAllQuestions_Available", () => {
-    QuestionModel.readAllQuestions().then((result) => {
+    QuestionModel.readAllQuestions(1).then((result) => {
 
         expect(result).not.toBe(null);
 
