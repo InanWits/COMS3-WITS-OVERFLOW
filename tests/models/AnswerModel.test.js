@@ -52,4 +52,10 @@ test("insertAnswer_invalidDataAsInput_AnswerInsertFailed", () => {
         });
 });
 
+test("readAllAnswers_Available", () => {
+    answerModel.readAnswers().then((result) => {
 
+        expect(result).not.toBe(null);
+
+    })
+});
