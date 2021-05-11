@@ -47,3 +47,9 @@ test("insertTopic_invalidDataAsInput_topicInsertFailed", () => {
             expect(err).not.toBe(null);
         });
 });
+
+test("readTopic_topicAvailable", () => {
+    topicModel.readTopics().then((result) => {
+        expect(result).not.toBe(null);
+    })
+});
