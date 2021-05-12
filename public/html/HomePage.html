@@ -3,62 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover" />
-    <title>WitsOverFlow</title>
 
-    <!--removes margins and paddings from all dom elements(<p>, <div>, <body>, etc)-->
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
+    <title>AskQuestion</title>
 
-        body{
-            display: flex;
-            flex-direction: column;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/WTOTemplate.css">
+    <link rel="stylesheet" href="../css/AskQuestion.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="../js/utils/constants/Constants.js"></script>
     <script src="../js/api/constants/RequestConstants.js"></script>
     <script src="../js/api/REST_API.js"></script>
 
-    <link rel="stylesheet" href="../css/WTOTemplate.css">
-
-    <script src="../js/controllers/HomePageController.js"></script>
-
+    <script src="../js/controllers/AskQuestionController.js"></script>
+    <script src="../js/models/FacultyModel.js"></script>
+    <script src="../js/models/SchoolModel.js"></script>
+    <script src="../js/models/TopicModel.js"></script>
+    <script src="../js/models/QuestionModel.js"></script>
 </head>
-<body>
 
+<body onload="enableEdits();">
 
+    <p class="title">Ask Question</p>
 
+    <div class="option-selection"> <!--Faculty selection-->
+        <p>Select faculty</p>
+        <div id="faculties-holder">
 
-    <header>
-        <img id="nav-button" src="../img/ic_menu_nav.svg" alt="">
-        <img id="search-button" src="../img/ic_search.svg" alt="">
-    </header>
+            <!--<div class="extended-fab">
+                Science
+            </div>
 
-    <aside id="nav">
+            <div class="extended-fab">
+                Health
+            </div>-->
 
-        <a class="aside-title" href="HomePage.html">Wits OverFlow</a>
-
-        <div id="aside-back">
-            <img class="icon" src="../img/ic_chevron_left_black.svg" alt="">
         </div>
+    </div>
 
-        <div class="aside-item" data-target-url="html/Questions.html">
-            <img class="icon" src="../img/ic_questions.svg" alt=""> <p>Questions</p>
+    <div class="option-selection">
+        <p>Select School</p>
+        <div id="schools-holder">
+            <!--<div class="extended-fab">
+                Science
+            </div>
+
+            <div class="extended-fab">
+                Health
+            </div>-->
         </div>
+    </div>
 
-        <div class="aside-item" data-target-url="html/AskQuestion.html">
-            <img class="icon" src="../img/ic_ask_questions.svg" alt=""> <p>Ask Question</p>
+    <div class="option-selection">
+        <p>Select Topic</p>
+        <div id="topics-holder">
+            <!--<div class="extended-fab">
+                Science
+            </div>
+
+            <div class="extended-fab">
+                Health
+            </div>-->
         </div>
+        <div id="create-topic">Create a new topic</div>
+    </div>
 
-    </aside>
+    <div class="option-selection">
+        <p>Question</p>
 
-    <section style="flex: 1;" >
-        <iframe id="content-holder"></iframe>
-    </section>
+        <!--<label class="text-input">
+            <textarea id="in-question"></textarea>
+        </label>
+        the richtext code did not work with textarea used a div instead below
+        --> 
+
+
+        <!--
+            new code for the rich text
+        -->
+        <div class="toolbar">
+            <ul class="tool-list">
+              <li class="tool">
+                <button 
+                  type="button" 
+                  data-command='justifyLeft'
+                  class="tool--btn">
+                  <i class=' fas fa-align-left'></i>
+                </button>
+              </li>
+              <li class="tool">
+                <button 
+                  type="button" 
+                  data-command='justifyCenter' 
+                  class="tool--btn">
+                  <i class=' fas fa-align-center'></i>
+                </button>
+              </li>
+              <li class="tool">
+                <button 
+                  type="button" 
+                  data-command="bold" 
+                  class="tool--btn">
+                  <i class=' fas fa-bold'></i>
+                </button>
+              </li>
+              <li class="tool">
+                <button 
+                  type="button" 
+                  data-command="italic"
+                  class="tool--btn">
+                  <i class=' fas fa-italic'></i>
+                </button>
+              </li>
+              <li class="tool">
+                <button 
+                  type="button" 
+                  data-command="underline"
+                  class="tool--btn">
+                  <i class=' fas fa-underline'></i>
+                </button>
+              </li>
+                <button 
+                  type="button" 
+                  data-command="createlink" 
+                  class="tool--btn">
+                  <i class=' fas fa-link'></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+          <br>
+
+          <div id="output" contenteditable="true"></div>
+          <br> <!-- used this div instead of the label with text area, does not work with text area
+            contenteditable means that the contents of the div are editable
+        -->
+  
+          <script> //javascript code to use rich text functionality/listener onto the div
+            let output = document.getElementById('output');
+            let buttons = document.getElementsByClassName('tool--btn');
+            for (let btn of buttons) {
+                btn.addEventListener('click', () => {
+                    let cmd = btn.dataset['command'];
+                    if(cmd === 'createlink') {
+                        let url = prompt("Enter the link here: ", "http:\/\/");
+                        document.execCommand(cmd, false, url);
+                    } else {
+                    document.execCommand(cmd, false, null);
+                }
+             })
+            }
+          </script>
+        <!--
+            new code end/ rich text 
+        -->
+
+        <div id="create-question">Post Question</div>
+    </div>
+
 
 </body>
 </html>
