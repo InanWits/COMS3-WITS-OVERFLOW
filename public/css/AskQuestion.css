@@ -3,6 +3,20 @@
     padding: 0;
 }
 
+
+.top-box{
+    display: flex;
+  }
+  
+.left-box {
+    flex: 0 0 50%;
+  }
+  
+.right-box {
+    flex: 1;
+  }
+
+
 .option-selection p{
     font-size: 22px;
     padding-top: 16px;
