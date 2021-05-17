@@ -16,7 +16,7 @@ afterAll(async () => {
 });
 
 test("test_read_school", () => {
-    schoolModel.readSchools().then((result) => {
+    schoolModel.readSchools(2).then((result) => {
         expect(result).not.toBe(null);
     })
 });

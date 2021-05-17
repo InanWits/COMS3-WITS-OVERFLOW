@@ -71,11 +71,14 @@ module.exports = {
         return new Promise((resolve, reject) => {
             const whereConditions = {
                 //added student id to the json object
-                [studentConstants.user_name] : StudentJsonObject[studentConstants.user_name]
+                [studentConstants.user_name] : StudentJsonObject[studentConstants.user_name],
+
             };
 
             const getStudent = queryHelper.buildSelectQuery(studentConstants.table_name,
-                [studentConstants.student_id, studentConstants.password], whereConditions);
+                [studentConstants.student_id, studentConstants.first_name, studentConstants.last_name, studentConstants.password], whereConditions);
+
+
 
             console.log(getStudent);
 
@@ -93,7 +96,7 @@ module.exports = {
 
                         bcrypt.compare(plainPassword, hashedPassword, (err, result) =>{
                             if (result) {
-                                resolve(studentObj[studentConstants.student_id]);
+                                resolve(studentObj);
                             }
                             else{
                                 reject("Authorization failed due to bad credentials");

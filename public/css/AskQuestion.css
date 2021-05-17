@@ -3,6 +3,20 @@
     padding: 0;
 }
 
+
+.top-box{
+    display: flex;
+  }
+  
+.left-box {
+    flex: 0 0 50%;
+  }
+  
+.right-box {
+    flex: 1;
+  }
+
+
 .option-selection p{
     font-size: 22px;
     padding-top: 16px;
@@ -67,5 +81,35 @@
 .text-input textarea{
     width: 99%;
     height: 200px;
-    resize: vertical;
+    resize: none; /*its was originally vertical but changed to none so that the user cannot resize textarea*/
+}
+
+/* rich text*/
+.tool-list {
+	display: flex;
+	flex-flow: row nowrap;
+	list-style: none;
+	padding: 0;
+	margin: 0rem;
+	overflow: hidden;
+	border-radius: 10px;
+}
+
+.tool--btn {
+	display: block;
+	border: none;
+	padding: .5rem;
+	font-size: 20px;
+}
+
+.tool--btn:focus{
+    background-color:black; 
+    color:white;   
+}
+
+#output {
+	height: 200px; 
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	margin-top: 1rem;
+	padding: 0rem;
 }
