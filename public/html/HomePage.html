@@ -24,6 +24,7 @@
     <script src="../js/api/REST_API.js"></script>
 
     <link rel="stylesheet" href="../css/WTOTemplate.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <script src="../js/controllers/HomePageController.js"></script>
 
@@ -34,17 +35,64 @@
 
 
     <header>
-        <img id="nav-button" src="../img/ic_menu_nav.svg" alt="">
+        <!--<img id="nav-button" src="../img/ic_menu_nav.svg" alt="">
+        REMOVAL OF THIS BUTTON TO PREVENT CLOSING OF SIDE NAV BAR
+        
         <img id="search-button" src="../img/ic_search.svg" alt="">
+        REMOVAL OF THIS HERE PLACED INSIDE CONTAINER BELOW AND ASLO FOR THE ANIMATION FOR SEARCH BUTTON BELOW
+    -->
+
+    <div class="container">
+        <input type="text" name="search" placeholder="Search..." class="input" />
+  
+        <a href="#" class="btn">
+            <img id="search-button" src="../img/ic_search.svg" alt="">
+        </a>
+      </div>
+
+        <style>
+            .container {
+                margin-left: 0px;
+                background: #fff;
+                height: 30px;
+                border-radius: 30px;
+                padding: 10px 10px;
+                padding-left: 0px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                transition: 0.8s;
+                box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+            }
+            .container:hover .input {
+                width: 400px;
+                margin-left: 20px;
+            }
+            .container .input {
+                background: transparent;
+                padding-left: 0px;
+                border: none;
+                outline: none;
+                width: 0px;
+                font-weight: 500;
+                font-size: 16px;
+                transition: 0.8s;
+            }
+        </style>
+
     </header>
 
     <aside id="nav">
 
         <a class="aside-title" href="HomePage.html">Wits OverFlow</a>
 
-        <div id="aside-back">
+        <!--<div id="aside-back">
             <img class="icon" src="../img/ic_chevron_left_black.svg" alt="">
         </div>
+        
+        REMOVAL OF THIS BUTTON TO PREVENT CLOSING OF SIDE NAV BAR
+
+        --> 
 
         <div class="aside-item" data-target-url="html/Questions.html">
             <img class="icon" src="../img/ic_questions.svg" alt=""> <p>Questions</p>
