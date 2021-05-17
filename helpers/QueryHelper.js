@@ -7,16 +7,19 @@ module.exports = {
     * */
     buildInsertQuery: (tableName, columns, data) => {
         const values = [];
+        let hasErrors = false;
 
         columns.forEach(column => {
             const value = data[column];
 
-            if (value == null) return null;
+            if (value == null) {
+                hasErrors = true;
+            }
 
             values.push(mysql.escape(value));
         });
 
-        return `insert into ${tableName} (${columns.toString()}) values (${values.toString()})`;
+        return hasErrors ? null : `insert into ${tableName} (${columns.toString()}) values (${values.toString()})`;
     },
 
     /*
@@ -222,7 +225,7 @@ module.exports = {
     * */
     buildDeleteQuery: (tableName,  whereConditions) => {
 
-        let query = `delete from ${tableName}  `;
+        let query = `delete from ${tableName}`;
 
         query += buildWhereCondition(whereConditions);
 
