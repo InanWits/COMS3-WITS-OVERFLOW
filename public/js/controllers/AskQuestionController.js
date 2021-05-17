@@ -15,7 +15,7 @@ $(window).on('load', () => {
     const topicHolder = $("#topics-holder");
     const createTopicBtn = $("#create-topic");
     const createQuestionBtn = $("#create-question");
-    const inputQuestion = $("#in-question");
+    const inputQuestion = $("#output");
 
     const resetSchools = () => {
       selectedSchool = null;
@@ -135,7 +135,7 @@ $(window).on('load', () => {
 
     //add click listener to create question button
     createQuestionBtn.on('click', () => {
-        const question = inputQuestion.val();
+        const question = inputQuestion.text();
         console.log("question = " + question);
 
         if (selectedTopic == null){
@@ -155,7 +155,7 @@ $(window).on('load', () => {
             createQuestion(questionData).then(
                 () => {
                     alert("Question posted successfully");
-                    inputQuestion.val("");
+                    inputQuestion.text("");
                 },
                 (err) => {
                     alert(err.responseText);
