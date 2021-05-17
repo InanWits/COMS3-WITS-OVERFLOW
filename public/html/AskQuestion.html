@@ -71,6 +71,11 @@
                 Health
             </div>-->
         </div>
+
+        <p>If Topic does not exist please input new topic below:</p>
+        <label class="text-input">
+          <textarea id="in-topic"></textarea>
+        </label><br>
         <div id="create-topic">Create a new topic</div>
       </div>
     </div>
@@ -163,6 +168,39 @@
           </script>
         <!--
             new code end/ rich text 
+        -->
+
+        <!--
+          code for the upload of picture
+        -->
+        <form action="/action_page.php">
+          <input type="file" id="myFile" accept="image/*, .pdf" (change)="processFile(imageInput)" name="filename">
+          <!--<input type="submit">-->
+        </form>
+
+        <!-- 
+          javascript code to validate upload file cause the user can upload different types of files not accepted for our system
+        -->
+        <script>
+        function processFile(imageInput) {
+          if (imageInput.files[0]) {
+            const file: File = imageInput.files[0];
+            var pattern = /image-*/;
+            var patternpdf = /.pdf/
+      
+            if (!file.type.match(pattern) || !file.type.match(patternpdf)) {
+              alert('Invalid format');
+              return;
+            }
+      
+            // here for resizing purposes
+
+          }
+        }
+      </script>
+
+        <!--
+          code ends for the upload
         -->
 
         <div id="create-question">Post Question</div>
