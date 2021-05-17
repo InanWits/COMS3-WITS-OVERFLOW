@@ -61,30 +61,6 @@ module.exports = {
     },
 
     /**
-     * jointColumns - takes in 2 values, column of first table and column of second table
-     * whereConditions - takes in a json array of values to use in the where clause, key -> tableName.ColumnName
-     * */
-    buildInnerJoinedSelectQuery: (firstTable, secondTable, jointColumns, firstTableColumns, secondTableColumns,
-                                  whereConditions = null) => {
-
-        //concatenate columns with tableNames
-        jointColumns[0] = firstTable + '.' + jointColumns[0];
-        jointColumns[1] = secondTable + '.' + jointColumns[1];
-
-        firstTableColumns.forEach((value, index, arr) => { arr[index] = firstTable + '.' + value; });
-        secondTableColumns.forEach((value, index, arr) => { arr[index] = secondTable + '.' + value; });
-
-        const targetColumns = firstTableColumns.concat(secondTableColumns);
-
-        let query = `select ${targetColumns} from ${firstTable} inner join ${secondTable} on ${jointColumns[0]} = 
-        ${jointColumns[1]}`;
-
-        query += buildWhereCondition(whereConditions);
-
-        return query;
-    },
-
-    /**
      * builds a select query that joins a table with its associated columns
      * listOfTables - list of tables to perform inner join on (e.g. table1, table2)
      * listOfOnJoinColumns - list of columns (col1, col2) to perform inner join on (e.g. inner join on table1.col1 = table2.col2)
