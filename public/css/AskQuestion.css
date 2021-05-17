@@ -21,6 +21,7 @@
     font-size: 22px;
     padding-top: 16px;
     padding-bottom: 16px;
+    word-wrap: break-word; /*used this for wrapping please check this on the loading of the data*/
     color: var(--dark-primary-color);
 }
 
@@ -46,6 +47,7 @@
 
 #topics-holder .extended-fab, #topics-holder .extended-fab-selected{
     width: 85%;
+    word-wrap: break-word; /*used this for wrapping please check this on the loading of the data*/
 }
 
 #topics-holder .extended-fab:hover, #topics-holder .extended-fab-selected{
@@ -55,7 +57,7 @@
 #create-topic, #create-question{
     height: 46px;
     border-radius: 28px;
-    margin: 8px;
+    margin-top: 8px;
     padding-right: 16px;
     padding-left: 16px;
     background: var(--primary-text-color);
@@ -79,8 +81,8 @@
 }
 
 .text-input textarea{
-    width: 99%;
-    height: 200px;
+    width: 75%;
+    height: 20px;
     resize: none; /*its was originally vertical but changed to none so that the user cannot resize textarea*/
 }
 
