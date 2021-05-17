@@ -1,7 +1,7 @@
 #question-text{
     color: var(--dark-primary-color);
     padding: 16px;
-    text-wrap: normal;
+    text-wrap: normal; /* i dont know the purpose of this my IDE does not accept this type of property for wrapping*/
     font-size: 20px;
     font-weight: bold;
 }
@@ -63,7 +63,8 @@ hr{
 #create-answer {
     height: 46px;
     border-radius: 28px;
-    margin: 8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     padding-right: 16px;
     padding-left: 16px;
     background: var(--primary-text-color);
@@ -90,4 +91,34 @@ hr{
     width: 99%;
     height: 200px;
     resize: vertical;
+}
+
+/* rich text*/
+.tool-list {
+	display: flex;
+	flex-flow: row nowrap;
+	list-style: none;
+	padding: 0;
+	margin: 0rem;
+	overflow: hidden;
+	border-radius: 10px;
+}
+
+.tool--btn {
+	display: block;
+	border: none;
+	padding: .5rem;
+	font-size: 20px;
+}
+
+.tool--btn:focus{
+    background-color:black; 
+    color:white;   
+}
+
+#output {
+	height: 200px; 
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	margin-top: 1rem;
+	padding: 0rem;
 }
