@@ -27,8 +27,8 @@ test('queryHelper_buildInsertQueryWithListOfValues_returnsNull', () => {
 });
 
 test('queryHelper_buildInsertQueryWithListOfValues_buildsCorrectQuery', () => {
-    const insertQueryWithValues = queryHelper.buildInsertQueryWithListOfValues('a', ['a', 'b'], [['a', 'b']]);
-    expect(insertQueryWithValues).toBe("insert into a (a,b) values ('a','b')");
+    const insertQueryWithValues = queryHelper.buildInsertQueryWithListOfValues('a', ['a', 'b'], [['a', 'b'], ['c', 'd']]);
+    expect(insertQueryWithValues).toBe("insert into a (a,b) values ('a','b'), ('c','d')");
 });
 
 test('queryHelper_buildDeleteQuery_buildsCorrectQuery', () => {
