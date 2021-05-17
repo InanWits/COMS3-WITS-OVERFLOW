@@ -167,37 +167,6 @@ module.exports = {
 
         return query;
     },
-    /**
-     * jointColumns - takes in 3 values, column of first table, column of second table and column of third table
-     * whereConditions - takes in a json array of values to use in the where clause, key -> tableName.ColumnName
-     * */
-    buildInnerJoinedSelectQuery2: (firstTable, secondTable, thirdTable, jointColumns, firstTableColumns, secondTableColumns,
-                                    thirdTableColumns,whereConditions = null) => {
-
-        //concatenate columns with tableNames
-        jointColumns[0] = firstTable + '.' + jointColumns[0];
-        jointColumns[1] = secondTable + '.' + jointColumns[1];
-        jointColumns[2] = thirdTable + '.' + jointColumns[2];
-
-        firstTableColumns.forEach((value, index, arr) => { arr[index] = firstTable + '.' + value; });
-        secondTableColumns.forEach((value, index, arr) => { arr[index] = secondTable + '.' + value; });
-        thirdTableColumns.forEach((value, index, arr) => { arr[index] = thirdTable + '.' + value; });
-
-        const targetColumns = firstTableColumns.concat(secondTableColumns).concat(thirdTableColumns);
-
-
-        let query = `select ${targetColumns} from ${firstTable} inner join ${secondTable} on ${jointColumns[0]} = 
-        ${jointColumns[1]}`;
-
-
-        query+=` inner join ${thirdTable} on ${jointColumns[1]} = ${jointColumns[2]} `;
-
-        query += buildWhereCondition(whereConditions);
-
-
-        return query;
-    },
-
     //--------------------------------UPDATE
 
     /*
