@@ -50,9 +50,37 @@ hr{
     margin-right: 16px;
     cursor: default;
     border-bottom: 1px solid var(--section-divider);
+    display: flex;
+    justify-content: space-between;
     transition: 0.3s;
 }
+.total{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-right: 10px;
+}
+.up{
+    margin-left: 5px;
+    margin-right: 5px;
+    background: white;
+    color: rgb(0, 167, 50);
+    border: 1px solid rgb(0, 167, 50);
+    border-radius: 10px;
+    padding: 5px 35px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+}
 
+.down{
+    margin-left: 5px;
+    margin-right: 5px;
+    background: white;
+    color: rgb(189, 0, 0);
+    border: 1px solid rgb(189, 0, 0);
+    border-radius: 10px;
+    padding: 5px 35px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+}
 /*not really sure if we need it
 .answer-view:hover{
     border: none;
