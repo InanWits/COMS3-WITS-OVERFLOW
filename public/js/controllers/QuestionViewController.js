@@ -21,6 +21,9 @@ $(window).on('load', () => {
         const upVoteBtn = $("<button class='up'>");
         const downVoteBtn = $("<button class='down'>");
 
+        upVoteBtn.text("up vote");
+        downVoteBtn.text("down vote");
+
         div.append(label);
         div.append(upVoteBtn);
         div.append(downVoteBtn);
