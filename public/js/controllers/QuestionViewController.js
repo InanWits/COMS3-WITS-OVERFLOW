@@ -2,7 +2,7 @@ $(window).on('load', () => {
 
     const answerHolder = $("#answer-container");
     const questionLbl = $("#question-text");
-    const answerInput = $("#in-answer");
+    const answerInput = $("#output");
     const postAnswerButton = $("#create-answer");
 
     //retrieve the question from localStorage
@@ -43,7 +43,7 @@ $(window).on('load', () => {
 
     //set click listener to post answer button
     postAnswerButton.on("click", () => {
-        const answer = answerInput.val().trim();
+        const answer = answerInput.text().trim();
 
         if (answer == null || answer === ""){
             alert("Answer required");
@@ -58,7 +58,7 @@ $(window).on('load', () => {
 
             createAnswer(answerData).then(
                 (answerId) => {
-                    answerInput.val("");
+                    answerInput.text("");
                     answerData["answer_id"] = answerId;
                     addAnswerToContainer(answerData);
                 },
