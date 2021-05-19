@@ -7,11 +7,11 @@
 .top-box{
     display: flex;
   }
-  
+
 .left-box {
     flex: 0 0 50%;
   }
-  
+
 .right-box {
     flex: 1;
   }
@@ -80,7 +80,7 @@
     width: 100%;
 }
 
-.text-input textarea{
+.text-input textarea, .text-input input{
     width: 75%;
     height: 20px;
     resize: none; /*its was originally vertical but changed to none so that the user cannot resize textarea*/
@@ -105,12 +105,12 @@
 }
 
 .tool--btn:focus{
-    background-color:black; 
-    color:white;   
+    background-color:black;
+    color:white;
 }
 
 #output {
-	height: 200px; 
+	height: 200px;
 	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 	margin-top: 1rem;
 	padding: 0rem;
