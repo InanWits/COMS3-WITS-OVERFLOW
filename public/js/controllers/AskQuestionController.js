@@ -15,6 +15,7 @@ $(window).on('load', () => {
     const topicHolder = $("#topics-holder");
     const createTopicBtn = $("#create-topic");
     const createQuestionBtn = $("#create-question");
+    const inputTopic = $("#in-topic");
     const inputQuestion = $("#output");
 
     const resetSchools = () => {
@@ -117,7 +118,7 @@ $(window).on('load', () => {
             alert("Select School first");
         }
         else{
-            const topic = prompt("Enter topic");
+            const topic = inputTopic.val();
             if (!(topic == null || topic.trim() === "")){
                 const topicData = {
                     "school_id" : selectedSchool.school_id,
@@ -125,9 +126,13 @@ $(window).on('load', () => {
                 };
 
                 insertTopic(topicData).then((topicId) => {
+                    inputTopic.val("");
                     topicData["topic_id"] = topicId;
                     addTopicToView(topicData, true);
                 })
+            }
+            else{
+                alert("Topic input required");
             }
         }
 
