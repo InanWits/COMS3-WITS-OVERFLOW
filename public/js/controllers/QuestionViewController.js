@@ -1,6 +1,6 @@
 $(window).on('load', () => {
 
-    const answerHolder = $("#answer-holder");
+    const answerHolder = $("#answer-container");
     const questionLbl = $("#question-text");
     const answerInput = $("#in-answer");
     const postAnswerButton = $("#create-answer");
@@ -14,6 +14,18 @@ $(window).on('load', () => {
     const addAnswerToContainer = (answer) => {
         const answerItem = $("<div class='answer-view'>");
         answerItem.text(answer.answer);
+
+
+        const div = $("<div>");
+        const label = $("<label class='total'>");
+        const upVoteBtn = $("<button class='up'>");
+        const downVoteBtn = $("<button class='down'>");
+
+        div.append(label);
+        div.append(upVoteBtn);
+        div.append(downVoteBtn);
+
+        answerItem.append(div);
 
         //add answer to the top of the list
         answerHolder.prepend(answerItem);
