@@ -127,6 +127,7 @@ hr{
 	flex-flow: row nowrap;
 	list-style: none;
 	padding: 0;
+    padding-top: 1rem;
 	margin: 0rem;
 	overflow: hidden;
 	border-radius: 10px;
@@ -150,3 +151,11 @@ hr{
 	margin-top: 1rem;
 	padding: 0rem;
 }
+
+.bottom-navbar {
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
