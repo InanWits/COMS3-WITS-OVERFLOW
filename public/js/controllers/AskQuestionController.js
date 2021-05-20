@@ -1,5 +1,6 @@
 $(window).on('load', () => {
 
+    let attachment;
     let selectedFaculty;
     let selectedSchool;
     let selectedTopic;
@@ -150,12 +151,8 @@ $(window).on('load', () => {
             alert("input a question");
         }
         else{
-            const questionData = {
-                "student_id" : localStorage.getItem(KEY_STUDENT_ID),
-                "topic_id" : selectedTopic.topic_id,
-                "question" : question,
-                "question_picture_url" : ""
-            };
+
+            attachment = inputAttachment.clone(true, true);
 
             createQuestion(questionData).then(
                 () => {
