@@ -28,7 +28,7 @@ const app = express();
 //config server to allow json as request inputs
 app.use(express.json());
 //make the public folder have public access
-app.use(express.static(path.join(__dirname, '/public')));
+//app.use(express.static(path.join(__dirname, '/public')));
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -41,6 +41,14 @@ app.get('/', (req, res) => {
    res.sendFile('public/index.html', {
       root: path.join(__dirname, './')
    });
+   /* res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write('<form action="/Answers" method="post" enctype="multipart/form-data">');
+    res.write('Answer: <input type="text" name="answer"><br>');
+    res.write('Question: <input type="text" name="question_id"><br>');
+    res.write('Student: <input type="text" name="student_id"><br>');
+    res.write('picture: <input type="file" name="answer_picture_url"><br>');
+    res.write('picture: <input type="submit"><br>');
+    res.write('</form>');*/
 });
 
 //importing all controllers.
