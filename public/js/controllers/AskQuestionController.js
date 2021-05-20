@@ -21,7 +21,7 @@ $(window).on('load', () => {
     const inputAttachment = $("#picture");
 
     //build form to send to server
-    const questionForm = $("<form action='http://192.168.0.172:8080/Questions' method='post' enctype='multipart/form-data' style='display: none'>");
+    const questionForm = $("<form action='/Questions' method='post' enctype='multipart/form-data' style='display: none'>");
     const studentId = $("<input type='text' name='student_id'>");
     const topicId = $("<input type='text' name='topic_id'>");
     const Question = $("<input type='text' name='question'>");
