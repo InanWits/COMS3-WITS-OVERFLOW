@@ -14,6 +14,7 @@
 }
 
 .question-view{
+    display:flex;
     padding: 16px;
     cursor: pointer;
     border-bottom: 1px solid var(--section-divider);
@@ -24,4 +25,20 @@
     border: none;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     color: var(--light-primary-color);
+}
+
+#small-image{
+    margin-left: 100px;
+    height: 100px;
+}
+
+    /* PDF icon */
+p:not(.cssonly) a[href$=".pdf"]:before {
+    margin-left: 100px;
+    width:100px;
+    height:122px;
+    background:url('../html/pdficon.png');
+    background-size: 100%;
+    display:inline-block;
+    content:' ';
 }
