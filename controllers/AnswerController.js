@@ -19,11 +19,8 @@ router.post('/', (req, res) => {
         answerJsonObj[answerConstants.question_id] = fields[answerConstants.question_id];
         answerJsonObj[answerConstants.answer] = fields[answerConstants.answer];
 
-        const fileName = files.answer_picture_url.name;
-        const fileOldPath = files.answer_picture_url.path;
-
         //trim removes empty spaces
-        if (fileName.trim() === ''){ //file was not uploaded
+        if (files.answer_picture_url == null){ //file was not uploaded
             answerJsonObj[answerConstants.answer_picture_url] = "";
             answerModel.insertAnswer(answerJsonObj).then(
                 (response) => responseHandler.sendResponseOkay(response, res),
@@ -31,6 +28,9 @@ router.post('/', (req, res) => {
             );
         }
         else{
+            const fileName = files.answer_picture_url.name;
+            const fileOldPath = files.answer_picture_url.path;
+
             const fileNewPath = 'Image/' + fileName;
             fs.rename(fileOldPath, fileNewPath, (err) => {
                 if (err){
