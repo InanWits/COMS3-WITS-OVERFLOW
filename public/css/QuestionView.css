@@ -54,6 +54,11 @@ hr{
     justify-content: space-between;
     transition: 0.3s;
 }
+.div-part1{
+    width: 60%;
+    display: flex;
+}
+
 .total{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-right: 10px;
@@ -159,3 +164,21 @@ hr{
     bottom: 0;
     width: 100%;
   }
+
+  #small-image{
+    margin-left: 100px;
+    margin-right:100px;
+    height: 100px;
+}
+
+    /* PDF icon */
+p:not(.cssonly) a[href$=".pdf"]:before {
+    margin-left: 100px;
+    margin-right: 100px;
+    width:100px;
+    height:122px;
+    background:url('../html/pdficon.png');
+    background-size: 100%;
+    display:inline-block;
+    content:' ';
+}
