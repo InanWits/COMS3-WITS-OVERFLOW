@@ -18,6 +18,34 @@ $(window).on('load', () => {
     const createQuestionBtn = $("#create-question");
     const inputTopic = $("#in-topic");
     const inputQuestion = $("#output");
+    const inputAttachment = $("#picture");
+
+    //build form to send to server
+    const questionForm = $("<form action='http://192.168.0.172:8080/Questions' method='post' enctype='multipart/form-data' style='display: none'>");
+    const studentId = $("<input type='text' name='student_id'>");
+    const topicId = $("<input type='text' name='topic_id'>");
+    const Question = $("<input type='text' name='question'>");
+
+    questionForm.append(studentId);
+    questionForm.append(topicId);
+    questionForm.append(Question);
+
+    $('body').append(questionForm);
+
+    questionForm.ajaxForm({
+        url: questionForm.attr('action'),
+        dataType: 'json',
+        success: () => {
+            questionForm.clearForm();
+            attachment.remove();
+            inputAttachment.val('');
+            inputQuestion.text("");
+            alert("Question posted successfully");
+        },
+        error: () => {
+            alert("Failed to post question");
+        }
+    });
 
     const resetSchools = () => {
       selectedSchool = null;
