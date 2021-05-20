@@ -76,24 +76,20 @@ $(window).on('load', () => {
     postAnswerButton.on("click", () => {
         const answer = answerInput.text().trim();
 
-        if (answer == null || answer === ""){
+        if (answer == null || answer === "") {
             alert("Answer required");
-        }
-        else{
-            const answerData = {
-                "question_id" : question.question_id,
-                "student_id" : localStorage.getItem(KEY_STUDENT_ID),
-                "answer" : answer,
+        } else {
+            answerData = {
+                "question_id": question.question_id,
+                "student_id": localStorage.getItem(KEY_STUDENT_ID),
+                "answer": answer,
                 "answer_picture_url": ""
             };
 
-            createAnswer(answerData).then(
-                (answerId) => {
-                    answerInput.text("");
-                    answerData["answer_id"] = answerId;
-                    addAnswerToContainer(answerData);
-                },
-                (err) => {alert(err.responseText);});
+            formAnswer.val(answer);
+            attachment = inputAttachment.clone(true, true);
+            answerForm.append(attachment);
+            answerForm.submit();
         }
 
     });
