@@ -154,14 +154,12 @@ $(window).on('load', () => {
 
             attachment = inputAttachment.clone(true, true);
 
-            createQuestion(questionData).then(
-                () => {
-                    alert("Question posted successfully");
-                    inputQuestion.text("");
-                },
-                (err) => {
-                    alert(err.responseText);
-                });
+            studentId.val(localStorage.getItem(KEY_STUDENT_ID));
+            topicId.val(selectedTopic.topic_id);
+            Question.val(question);
+            questionForm.append(attachment);
+            questionForm.submit();
+
         }
     });
 });
