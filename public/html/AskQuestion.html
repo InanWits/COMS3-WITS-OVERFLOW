@@ -172,10 +172,7 @@
         <!--
           code for the upload of picture
         -->
-        <form action="/action_page.php">
-          <input type="file" id="myFile" accept="image/*, .pdf" (change)="processFile(imageInput)" name="filename">
-          <!--<input type="submit">-->
-        </form>
+        <input type="file" id="picture" accept="image/*, .pdf" (change)="processFile(imageInput)" name="question_picture_url">
 
         <!-- 
           javascript code to validate upload file cause the user can upload different types of files not accepted for our system
