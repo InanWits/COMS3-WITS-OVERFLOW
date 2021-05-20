@@ -37,140 +37,156 @@
     <p id="question-text"><!--The Question here--></p>
 </header>
 
-<section>
+<section> 
   <p class="answers-label">Answers</p>
 
   <div id="answer-holder">
       <div id="answer-container"></div>
-    <!--<div class="answer-view">
+      <div class="answer-view">
+      <div class="div-part1">
       Question here
+      <a><img id="small-image" src="posted-image/one.jpg" alt="View"></a> <!-- Added image link and resize it to 100 hieght so no need for resizing js code, use raw image and store into database-->
+      <p><a href="posted-pdf/Testing purposes.pdf" data-size="2 MB"></a> </p> <!--icon for pdf added but href will change for each posted question-->
+      </div>
       <div>
         <label class="total">Total</label>
         <button class="up">up vote</button>
         <button class="down">down vote</button>
       </div>
-    </div>-->
-    <!--<div class="answer-view">
-      Question here
-    </div>-->
+    </div>
 
     <div class="option-selection">
       <p>Know the answer?</p> 
-
-      <div class="toolbar">
-        <ul class="tool-list">
-          <li class="tool">
-            <button 
-              type="button" 
-              data-command='justifyLeft'
-              class="tool--btn">
-              <i class=' fas fa-align-left'></i>
-            </button>
-          </li>
-          <li class="tool">
-            <button 
-              type="button" 
-              data-command='justifyCenter' 
-              class="tool--btn">
-              <i class=' fas fa-align-center'></i>
-            </button>
-          </li>
-          <li class="tool">
-            <button 
-              type="button" 
-              data-command="bold" 
-              class="tool--btn">
-              <i class=' fas fa-bold'></i>
-            </button>
-          </li>
-          <li class="tool">
-            <button 
-              type="button" 
-              data-command="italic"
-              class="tool--btn">
-              <i class=' fas fa-italic'></i>
-            </button>
-          </li>
-          <li class="tool">
-            <button 
-              type="button" 
-              data-command="underline"
-              class="tool--btn">
-              <i class=' fas fa-underline'></i>
-            </button>
-          </li>
-            <button 
-              type="button" 
-              data-command="createlink" 
-              class="tool--btn">
-              <i class=' fas fa-link'></i>
-            </button>
-          </li>
-        </ul>
-      </div>
-      <br>
-
-      <div id="output" contenteditable="true"></div>
-      <br>
-
-      <script> //javascript code to use rich text functionality/listener onto the div
-        let output = document.getElementById('output');
-        let buttons = document.getElementsByClassName('tool--btn');
-        for (let btn of buttons) {
-            btn.addEventListener('click', () => {
-                let cmd = btn.dataset['command'];
-                if(cmd === 'createlink') {
-                    let url = prompt("Enter the link here: ", "http:\/\/");
-                    document.execCommand(cmd, false, url);
-                } else {
-                document.execCommand(cmd, false, null);
-            }
-         })
-        }
-      </script>
-
-      <!--<label class="text-input">
-        <textarea id="in-answer"></textarea>
-      </label>-->
-
-        <!--
-          code for the upload of picture
-        -->
-        <form action="/action_page.php">
-          <input type="file" id="myFile" accept="image/*, .pdf" (change)="processFile(imageInput)" name="filename">
-          <!--<input type="submit">-->
-        </form>
-
-        <!-- 
-          javascript code to validate upload file cause the user can upload different types of files not accepted for our system
-        -->
-        <script>
-        function processFile(imageInput) {
-          if (imageInput.files[0]) {
-            const file: File = imageInput.files[0];
-            var pattern = /image-*/;
-            var patternpdf = /.pdf/
+      <!--<div id="create-answer">Post Answer</div><br>-->
       
-            if (!file.type.match(pattern) || !file.type.match(patternpdf)) {
-              alert('Invalid format');
-              return;
-            }
-      
-            // here for resizing purposes
-
-          }
-        }
-      </script>
-
-        <!--
-          code ends for the upload
-        -->
-
-      <div id="create-answer">Post Answer</div>
     </div>
 
   </div>
   <hr>
 </section>
+
+
+  <!--
+    Bottom nav bar or footer containing rich text added here, no new code just relocation of code
+  -->
+  <div class="bottom-navbar">
+    <div class="toolbar">
+      <ul class="tool-list">
+        <li class="tool">
+          <button 
+            type="button" 
+            data-command='justifyLeft'
+            class="tool--btn">
+            <i class=' fas fa-align-left'></i>
+          </button>
+        </li>
+        <li class="tool">
+          <button 
+            type="button" 
+            data-command='justifyCenter' 
+            class="tool--btn">
+            <i class=' fas fa-align-center'></i>
+          </button>
+        </li>
+        <li class="tool">
+          <button 
+            type="button" 
+            data-command="bold" 
+            class="tool--btn">
+            <i class=' fas fa-bold'></i>
+          </button>
+        </li>
+        <li class="tool">
+          <button 
+            type="button" 
+            data-command="italic"
+            class="tool--btn">
+            <i class=' fas fa-italic'></i>
+          </button>
+        </li>
+        <li class="tool">
+          <button 
+            type="button" 
+            data-command="underline"
+            class="tool--btn">
+            <i class=' fas fa-underline'></i>
+          </button>
+        </li>
+          <button 
+            type="button" 
+            data-command="createlink" 
+            class="tool--btn">
+            <i class=' fas fa-link'></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <br>
+
+    <div id="output" contenteditable="true"></div>
+    <br>  
+
+    <script> //javascript code to use rich text functionality/listener onto the div
+      let output = document.getElementById('output');
+      let buttons = document.getElementsByClassName('tool--btn');
+      for (let btn of buttons) {
+          btn.addEventListener('click', () => {
+              let cmd = btn.dataset['command'];
+              if(cmd === 'createlink') {
+                  let url = prompt("Enter the link here: ", "http:\/\/");
+                  document.execCommand(cmd, false, url);
+              } else {
+              document.execCommand(cmd, false, null);
+          }
+       })
+      }
+    </script>
+
+    <!--<label class="text-input">
+      <textarea id="in-answer"></textarea>
+    </label>-->
+
+      <!--
+        code for the upload of picture
+      -->
+      <form action="/action_page.php">
+        <input type="file" id="myFile" accept="image/*, .pdf" (change)="processFile(imageInput)" name="filename">
+        <!--<input type="submit">-->
+      </form>
+
+      <!-- 
+        javascript code to validate upload file cause the user can upload different types of files not accepted for our system
+      -->
+      <script>
+      function processFile(imageInput) {
+        if (imageInput.files[0]) {
+          const file: File = imageInput.files[0];
+          var pattern = /image-*/;
+          var patternpdf = /.pdf/
+    
+          if (!file.type.match(pattern) || !file.type.match(patternpdf)) {
+            alert('Invalid format');
+            return;
+          }
+    
+          // here for resizing purposes
+
+        }
+      }
+    </script>
+
+      <!--
+        code ends for the upload
+      -->
+      <br>
+      <div id="create-answer">Post Answer</div>  
+
+
+  </div>
+
+    <!--
+      code ends here for the bottom nav bar contain rich text
+
+    -->
 </body>
 </html>

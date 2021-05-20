@@ -10,6 +10,7 @@
 
 .left-box {
     flex: 0 0 50%;
+    margin-right: 50px;
   }
 
 .right-box {
@@ -21,7 +22,7 @@
     font-size: 22px;
     padding-top: 16px;
     padding-bottom: 16px;
-    word-wrap: break-word; /*used this for wrapping please check this on the loading of the data*/
+    /*word-wrap: break-word; /*used this for wrapping please check this on the loading of the data*/
     color: var(--dark-primary-color);
 }
 
@@ -45,9 +46,14 @@
     transform: scale(1.05);
 }
 
+#topics-holder, #schools-holder, #faculties-holder{
+    height: 100px;
+    overflow: auto;
+}
+
 #topics-holder .extended-fab, #topics-holder .extended-fab-selected{
-    width: 85%;
-    word-wrap: break-word; /*used this for wrapping please check this on the loading of the data*/
+    /*width: 85%;*/
+    /*word-wrap: break-word; /*used this for wrapping please check this on the loading of the data*/
 }
 
 #topics-holder .extended-fab:hover, #topics-holder .extended-fab-selected{

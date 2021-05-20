@@ -11,7 +11,9 @@ header{
 }
 
 section{
+    height: 35%;
     flex-direction: column;
+    overflow: auto;
 }
 
 .answers-label{
@@ -43,7 +45,10 @@ hr{
     padding-bottom: 16px;
     color: var(--dark-primary-color);
 }
-
+.answer-holder{
+    position: fixed;
+    overflow: auto;
+}
 .answer-view{
     padding: 16px;
     margin-left: 16px;
@@ -53,7 +58,13 @@ hr{
     display: flex;
     justify-content: space-between;
     transition: 0.3s;
+    overflow: auto;
 }
+.div-part1{
+    width: 60%;
+    display: flex;
+}
+
 .total{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-right: 10px;
@@ -117,7 +128,7 @@ hr{
 
 .text-input textarea{
     width: 99%;
-    height: 200px;
+    height: 150px;
     resize: vertical;
 }
 
@@ -127,6 +138,7 @@ hr{
 	flex-flow: row nowrap;
 	list-style: none;
 	padding: 0;
+    padding-top: 1rem;
 	margin: 0rem;
 	overflow: hidden;
 	border-radius: 10px;
@@ -145,8 +157,35 @@ hr{
 }
 
 #output {
-	height: 200px; 
+	height: 180px; 
 	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 	margin-top: 1rem;
 	padding: 0rem;
+}
+
+.bottom-navbar {
+    height: 65%;
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  #small-image{
+    margin-left: 100px;
+    margin-right:100px;
+    height: 100px;
+}
+
+    /* PDF icon */
+p:not(.cssonly) a[href$=".pdf"]:before {
+    margin-left: 100px;
+    margin-right: 100px;
+    width:100px;
+    height:122px;
+    background:url('../html/pdficon.png');
+    background-size: 100%;
+    display:inline-block;
+    content:' ';
 }
