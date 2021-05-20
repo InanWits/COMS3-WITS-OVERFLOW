@@ -1,13 +1,44 @@
 $(window).on('load', () => {
 
+    let attachment;
+    let answerData;
+
     const answerHolder = $("#answer-container");
     const questionLbl = $("#question-text");
     const answerInput = $("#output");
     const postAnswerButton = $("#create-answer");
+    const inputAttachment = $("#myFile");
 
     //retrieve the question from localStorage
     const questionFromStorage = localStorage.getItem(KEY_QUESTION);
     const question = JSON.parse(questionFromStorage);
+
+    const answerForm = $("<form action='/Answers' method='post' enctype='multipart/form-data' style='display: none'>");
+    const questionId = $("<input type='text' name='question_id'>")
+    const studentId = $("<input type='text' name='student_id'>");
+    const formAnswer = $("<input type='text' name='answer'>");
+
+    questionId.val(question.question_id);
+    studentId.val(localStorage.getItem(KEY_STUDENT_ID));
+
+    answerForm.append(questionId);
+    answerForm.append(studentId);
+    answerForm.append(formAnswer);
+
+    $('body').append(answerForm);
+
+    answerForm.ajaxForm({
+        url: answerForm.attr('action'),
+        dataType: 'json',
+        success: (answerId) => {
+            answerForm.clearForm();
+            inputAttachment.val('');
+            attachment.remove();
+            answerInput.text("");
+            answerData["answer_id"] = answerId;
+            addAnswerToContainer(answerData);
+        }
+    })
 
     questionLbl.text(question.question);
 
@@ -45,24 +76,20 @@ $(window).on('load', () => {
     postAnswerButton.on("click", () => {
         const answer = answerInput.text().trim();
 
-        if (answer == null || answer === ""){
+        if (answer == null || answer === "") {
             alert("Answer required");
-        }
-        else{
-            const answerData = {
-                "question_id" : question.question_id,
-                "student_id" : localStorage.getItem(KEY_STUDENT_ID),
-                "answer" : answer,
+        } else {
+            answerData = {
+                "question_id": question.question_id,
+                "student_id": localStorage.getItem(KEY_STUDENT_ID),
+                "answer": answer,
                 "answer_picture_url": ""
             };
 
-            createAnswer(answerData).then(
-                (answerId) => {
-                    answerInput.text("");
-                    answerData["answer_id"] = answerId;
-                    addAnswerToContainer(answerData);
-                },
-                (err) => {alert(err.responseText);});
+            formAnswer.val(answer);
+            attachment = inputAttachment.clone(true, true);
+            answerForm.append(attachment);
+            answerForm.submit();
         }
 
     });

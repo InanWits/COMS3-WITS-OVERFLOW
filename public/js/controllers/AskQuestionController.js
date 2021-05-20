@@ -1,5 +1,6 @@
 $(window).on('load', () => {
 
+    let attachment;
     let selectedFaculty;
     let selectedSchool;
     let selectedTopic;
@@ -17,6 +18,34 @@ $(window).on('load', () => {
     const createQuestionBtn = $("#create-question");
     const inputTopic = $("#in-topic");
     const inputQuestion = $("#output");
+    const inputAttachment = $("#picture");
+
+    //build form to send to server
+    const questionForm = $("<form action='/Questions' method='post' enctype='multipart/form-data' style='display: none'>");
+    const studentId = $("<input type='text' name='student_id'>");
+    const topicId = $("<input type='text' name='topic_id'>");
+    const Question = $("<input type='text' name='question'>");
+
+    questionForm.append(studentId);
+    questionForm.append(topicId);
+    questionForm.append(Question);
+
+    $('body').append(questionForm);
+
+    questionForm.ajaxForm({
+        url: questionForm.attr('action'),
+        dataType: 'json',
+        success: () => {
+            questionForm.clearForm();
+            attachment.remove();
+            inputAttachment.val('');
+            inputQuestion.text("");
+            alert("Question posted successfully");
+        },
+        error: () => {
+            alert("Failed to post question");
+        }
+    });
 
     const resetSchools = () => {
       selectedSchool = null;
@@ -150,21 +179,15 @@ $(window).on('load', () => {
             alert("input a question");
         }
         else{
-            const questionData = {
-                "student_id" : localStorage.getItem(KEY_STUDENT_ID),
-                "topic_id" : selectedTopic.topic_id,
-                "question" : question,
-                "question_picture_url" : ""
-            };
 
-            createQuestion(questionData).then(
-                () => {
-                    alert("Question posted successfully");
-                    inputQuestion.text("");
-                },
-                (err) => {
-                    alert(err.responseText);
-                });
+            attachment = inputAttachment.clone(true, true);
+
+            studentId.val(localStorage.getItem(KEY_STUDENT_ID));
+            topicId.val(selectedTopic.topic_id);
+            Question.val(question);
+            questionForm.append(attachment);
+            questionForm.submit();
+
         }
     });
 });
