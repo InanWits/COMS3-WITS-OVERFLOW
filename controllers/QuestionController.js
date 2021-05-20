@@ -9,12 +9,53 @@ const express = require('express');
 
 const router = express.Router();
 
+
+const http = require('http');
+const formidable = require('formidable'); // here we call the formidable module
+const fs = require('fs'); // call the fs module for rename file and store file in our specified folder
+
+//const path  = require('path');
+//const file_name = path.basename('/Image');
+//console.log(file_name);
+
 router.post('/', (req, res) => {
-    const questionJsonObj = req.body;
-    questionModel.insertQuestion(questionJsonObj).then(
-        (response) => responseHandler.sendResponseOkay(response, res),
-        (err) => responseHandler.sendNotAcceptableResponse(err, res)
-    )
+
+    const form = new formidable.IncomingForm();
+    form.parse(req, (err, fields, files) => {
+
+        const questionJsonObj = {};
+        questionJsonObj[questionConstants.student_id] = fields[questionConstants.student_id];
+        questionJsonObj[questionConstants.topic_id] = fields[questionConstants.topic_id];
+        questionJsonObj[questionConstants.question] = fields[questionConstants.question];
+
+        const fileName = files.question_picture_url.name;
+        const fileOldPath = files.question_picture_url.path;
+
+        //trim removes empty spaces
+        if (fileName.trim() === ''){ //file was not uploaded
+            questionJsonObj[questionConstants.question_picture_url] = "";
+            questionModel.insertQuestion(questionJsonObj).then(
+                (response) => responseHandler.sendResponseOkay(response, res),
+                (err) => responseHandler.sendNotAcceptableResponse(err, res)
+            );
+        }
+        else{
+            const fileNewPath = 'Image/' + fileName;
+            fs.rename(fileOldPath, fileNewPath, (err) => {
+               if (err){
+                   responseHandler.sendNotAcceptableResponse(err.message, res)
+               }
+               else{
+                   questionJsonObj[questionConstants.question_picture_url] = fileNewPath;
+                   questionModel.insertQuestion(questionJsonObj).then(
+                       (response) => responseHandler.sendResponseOkay(response, res),
+                       (err) => responseHandler.sendNotAcceptableResponse(err, res)
+                   );
+               }
+            });
+        }
+
+    });
 });
 
 /*router.post(`/:${questionConstants.question}`, (req, res) => {
