@@ -55,12 +55,24 @@ router.post('/', (req, res) => {
     student_id : "student_id",
     answer : "answer",
     vote: "vote",
-    * */
+    */
 
-   // const answerJsonObj = req.body; //retrieves the json
+    //const answerJsonObj = req.body; //retrieves the json
     //attach answerId to answerJsonObj
 
     //call model
 //});
+router.post(`/:${answerConstants.answer_id}/vote`,(req, res) => {
+    /*
+    * question_id
+    * student_id
+    * answer
+    * vote
+    */
+
+    //Json object with the answer information
+    const answerJsonObj = req.body;
+
+    });
 
 module.exports = router;
