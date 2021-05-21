@@ -42,6 +42,20 @@ $(window).on('load', () => {
 
     questionLbl.text(question.question);
 
+    const vote = (answerId, voteVal) => {
+        const answerData = {
+            "student_id" : localStorage.getItem(KEY_STUDENT_ID),
+            "rate" : voteVal
+        };
+
+        rateAnswer(answerId, answerData).then(
+            msg => {
+                alert(msg);
+            },
+            err => alert(err.responseText)
+        );
+    }
+
     const addAnswerToContainer = (answer) => {
         const answerItem = $("<div class='answer-view'>");
         answerItem.text(answer.answer);
@@ -63,6 +77,14 @@ $(window).on('load', () => {
 
         //add answer to the top of the list
         answerHolder.prepend(answerItem);
+
+        upVoteBtn.on('click', () => {
+            vote(answer.answer_id, 1);
+        });
+
+        downVoteBtn.on('click', () => {
+            vote(answer.answer_id, -1);
+        });
     };
 
     readQuestionAnswers(question.question_id).then((answers) => {
