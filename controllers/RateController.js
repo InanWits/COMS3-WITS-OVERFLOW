@@ -8,15 +8,9 @@ const express = require('express');
 
 const router = express.Router();
 
-router.post('/', (req, res) => {
-    const answerJsonObj = req.body;
-    rateModel.insertRate(answerJsonObj).then(
-        (response) => responseHandler.sendResponseOkay(response, res),
-        (err) => responseHandler.sendNotAcceptableResponse(err, res)
-    );
-});
 
-router.post(`/${rateConstants.answer_id}/vote`,(req, res) => {
+
+router.post(`/:${rateConstants.answer_id}/vote`,(req, res) => {
     const answerId = req.params[rateConstants.answer_id];
     req.body[rateConstants.answer_id] = answerId;
 
