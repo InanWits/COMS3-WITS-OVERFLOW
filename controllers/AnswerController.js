@@ -63,17 +63,4 @@ router.post('/', (req, res) => {
 
     //call model
 //});
-router.post(`/:${answerConstants.answer_id}/vote`,(req, res) => {
-    /*
-    * question_id
-    * student_id
-    * answer
-    * vote
-    */
-
-    //Json object with the answer information
-    const answerJsonObj = req.body;
-
-    });
-
 module.exports = router;
