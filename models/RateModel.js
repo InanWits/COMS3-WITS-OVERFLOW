@@ -8,7 +8,7 @@ module.exports = {
     /*
      * RateJsonObject is a json object in this format
      * {
-     *    student_id : "1918469"
+     *   student_id : "1918469"
      *   answer_id : "123456",
      *   Rate : "rate ?"
      *}
@@ -28,6 +28,51 @@ module.exports = {
                     reject(err.message);
                 } else {
                     resolve("Answer rated!");
+                }
+            });
+        });
+    },
+    vote: async (data) =>{
+        return new Promise((resolve, reject) => {
+
+            const whereCondition = {
+                [rateConstants.student_id] : data[rateConstants.student_id],
+                [rateConstants.answer_id] : data[rateConstants.answer_id],
+                [rateConstants.rate] : data[rateConstants.rate],
+
+
+            };
+
+            const SelectQuery = queryHelper.buildSelectQuery(rateConstants.table_name,[rateConstants.student_id,rateConstants.answer_id,
+                rateConstants.rate], whereCondition);
+
+            db.getConnection().query(SelectQuery,(err,result) => {
+                if (err){
+                    reject(err.message);
+                }
+                else {
+                    if(result.length === 0){
+                        const insertQuery = queryHelper.buildInsertQueryWithValues(rateConstants.table_name,[rateConstants.student_id,rateConstants.answer_id,rateConstants.rate]);
+                        db.getConnection().query(insertQuery, (err,result) => {
+                            if (err){
+                                reject(err.message);
+                            }
+                            else{
+                                resolve(result);
+                            }
+                        });
+                    }
+                    else{
+                        const updateRateQuery = queryHelper.buildUpdateQuery(rateConstants.table_name,[rateConstants.rate],[data[rateConstants.rate]],whereCondition);
+                        db.getConnection().query(updateRateQuery, (err, result) => {
+                            if (err){
+                                reject(err.message);
+                            }
+                            else{
+                                resolve(result);
+                            }
+                        });
+                    }
                 }
             });
         });
