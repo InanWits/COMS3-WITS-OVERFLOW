@@ -37,28 +37,26 @@ module.exports = {
 
             const whereCondition = {
                 [rateConstants.student_id] : data[rateConstants.student_id],
-                [rateConstants.answer_id] : data[rateConstants.answer_id],
-                [rateConstants.rate] : data[rateConstants.rate],
-
-
+                [rateConstants.answer_id] : data[rateConstants.answer_id]
             };
 
             const SelectQuery = queryHelper.buildSelectQuery(rateConstants.table_name,[rateConstants.student_id,rateConstants.answer_id,
                 rateConstants.rate], whereCondition);
 
+            console.log(SelectQuery);
             db.getConnection().query(SelectQuery,(err,result) => {
                 if (err){
                     reject(err.message);
                 }
                 else {
                     if(result.length === 0){
-                        const insertQuery = queryHelper.buildInsertQueryWithValues(rateConstants.table_name,[rateConstants.student_id,rateConstants.answer_id,rateConstants.rate]);
+                        const insertQuery = queryHelper.buildInsertQuery(rateConstants.table_name,[rateConstants.student_id,rateConstants.answer_id,rateConstants.rate],data);
                         db.getConnection().query(insertQuery, (err,result) => {
                             if (err){
                                 reject(err.message);
                             }
                             else{
-                                resolve(result);
+                                resolve("Answer voted successfully!");
                             }
                         });
                     }
@@ -69,7 +67,7 @@ module.exports = {
                                 reject(err.message);
                             }
                             else{
-                                resolve(result);
+                                resolve("Answer vote updated successfully");
                             }
                         });
                     }
