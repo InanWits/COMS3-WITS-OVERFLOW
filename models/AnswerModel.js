@@ -57,23 +57,7 @@ module.exports = {
                     resolve(result);
                 }
             });
-
-            //update N set a = 'b' where c = 'e' and d = 'f';
-            /*const whereCondition = {
-                'c' : 'e',
-                'd' : 'f',
-                column : value
-            };
-
-            const updateQuery = queryHelper.buildUpdateQuery('N', ['a'], ['b'], whereCondition);*/
         });
     }
 
-    //vote
-    //check if student has voted before
-    //if student has voted before, update
-    //else insert
-
-    //if(result.length > 0) -> student has voted before (update query)
-    //else student has not voted before (insert query)
 }
