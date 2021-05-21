@@ -50,10 +50,13 @@ $(window).on('load', () => {
         //console.log(targetUrl);
         //open the target page in the iFrame
         iFrame.attr('src', targetUrl);
+        
+        var x = document.getElementById("animated-title") // to hide the homepage text after clicking aside item button
+        x.style.display = "none";
     });
 
     //select the first item by default
-    asideItems[0].click();
+    //asideItems[0].click(); unselected to show starting homepage text
 
     //create a reference to navigation and close button
     const nav = $('#nav');
