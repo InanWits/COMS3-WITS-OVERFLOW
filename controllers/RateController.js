@@ -1,4 +1,4 @@
-const answerModel = require('../models/RateModel');
+const rateModel = require('../models/RateModel');
 
 const rateConstants = require('../utils/constants/RateConstants');
 
@@ -10,7 +10,18 @@ const router = express.Router();
 
 router.post('/', (req, res) => {
     const answerJsonObj = req.body;
-    answerModel.insertRate(answerJsonObj).then(
+    rateModel.insertRate(answerJsonObj).then(
+        (response) => responseHandler.sendResponseOkay(response, res),
+        (err) => responseHandler.sendNotAcceptableResponse(err, res)
+    );
+});
+
+router.post(`/${rateConstants.answer_id}/vote`,(req, res) => {
+    const answerId = req.params[rateConstants.answer_id];
+    req.body[rateConstants.answer_id] = answerId;
+
+
+    rateModel.vote(req.body).then(
         (response) => responseHandler.sendResponseOkay(response, res),
         (err) => responseHandler.sendNotAcceptableResponse(err, res)
     );
