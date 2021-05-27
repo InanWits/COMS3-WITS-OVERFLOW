@@ -93,17 +93,28 @@
 }
 
 /* rich text*/
+.toolbar{
+    width: 95%;
+    justify-content: flex-end;
+}
+
 .tool-list {
+    justify-content: flex-end;
 	display: flex;
 	flex-flow: row nowrap;
 	list-style: none;
 	padding: 0;
 	margin: 0rem;
 	overflow: hidden;
-	border-radius: 10px;
+    width: 100%;
+	border-radius: 0px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right:1px solid black;
 }
 
 .tool--btn {
+    background-color:white;
 	display: block;
 	border: none;
 	padding: .5rem;
@@ -113,11 +124,18 @@
 .tool--btn:focus{
     background-color:black;
     color:white;
+    outline: none;
 }
 
 #output {
+    width: 95%;
+    outline: none;
 	height: 200px;
-	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-	margin-top: 1rem;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.0), 0 6px 6px rgba(0,0,0,0.23);
+	margin-top: 0rem;
 	padding: 0rem;
+    border-left: 1px solid black;
+    border-bottom:1px solid black;
+    border-right:1px solid black;
+    overflow:auto;
 }
