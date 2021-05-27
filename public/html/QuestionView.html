@@ -37,7 +37,9 @@
 
 <header>
     <a href="Questions.html"><img id="nav-button" src="../img/ic_arrow_back.svg" alt=""></a>
-    <p id="question-text"><!--The Question here--></p>
+    <p id="question-text">the truth is truthful when it is not a lie</p>
+    <button class="answer-button" id="answer-button" onclick="openNav()">Click to answer</button>
+
 </header>
 
 <section> 
@@ -72,7 +74,7 @@
   <!--
     Bottom nav bar or footer containing rich text added here, no new code just relocation of code
   -->
-  <div class="bottom-navbar">
+  <div id="bottom-navbar" class="bottom-navbar">
     <div class="toolbar">
       <ul class="tool-list">
         <li class="tool">
@@ -124,7 +126,7 @@
         </li>
       </ul>
     </div>
-    <br>
+    
 
     <div id="output" contenteditable="true"></div>
     <br>  
@@ -176,6 +178,28 @@
 
         }
       }
+    </script>
+
+    <script>
+
+      // document.getElementById("answer-button").onclick = function() {openNav()};
+
+      function openNav() {
+        if(document.getElementById("answer-button").textContent == "Click to answer"){
+          document.getElementById("bottom-navbar").style.height = "60%";
+          document.getElementById("answer-button").textContent = "Retract"
+        }
+        else{
+          document.getElementById("bottom-navbar").style.height = "0";
+          document.getElementById("answer-button").textContent = "Click to answer";
+        }
+        /*document.getElementById("main").style.marginLeft = "250px";*/
+      }
+
+      /*function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+      }*/
     </script>
 
       <!--
