@@ -11,7 +11,7 @@ header{
 }
 
 section{
-    height: 35%;
+    height: 100%;
     flex-direction: column;
     overflow: auto;
 }
@@ -45,8 +45,13 @@ hr{
     padding-bottom: 16px;
     color: var(--dark-primary-color);
 }
+
+.img-arrow{
+margin-top: 30px;
+}
+
 .answer-holder{
-    position: fixed;
+    position: absolute;
     overflow: auto;
 }
 .answer-view{
@@ -60,14 +65,49 @@ hr{
     transition: 0.3s;
     overflow: auto;
 }
+
+.answer-details{
+    font-size: small;
+    color: rgb(97, 97, 97);
+    position: absolute;
+}
+
+.question-details{
+    margin-left: 40px;
+    font-size: small;
+    color: rgb(97, 97, 97);
+    position: absolute;
+}
+.answer-text, .question-text{
+    margin-top: 30px;
+    position: relative;
+}
+
+.question-text{
+    margin-top: 50px;
+    position: relative;
+}
+
 .div-part1{
-    width: 60%;
+    width: 20%;
     display: flex;
+    overflow: auto;
+}
+
+.div-part2{
+    width: 40%;
+    display: flex;
+    margin-right: 150px;
+}
+
+.div-part3{
+    width:40%;
+
 }
 
 .total{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-right: 10px;
+    margin-right: 30px;
 }
 .up{
     margin-left: 5px;
@@ -76,7 +116,7 @@ hr{
     color: rgb(0, 167, 50);
     border: 1px solid rgb(0, 167, 50);
     border-radius: 10px;
-    padding: 5px 35px;
+    padding: 5px  35px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     cursor: pointer;
 }
