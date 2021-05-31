@@ -13,6 +13,29 @@
     overflow-x: auto;
 }
 
+.div-part1{
+    width: 20%;
+    display: flex;
+    overflow: auto;
+}
+
+.div-part2{
+    width: 40%;
+    display: flex;
+    margin-right: 150px;
+}
+
+.question-details{
+    font-size: small;
+    color: rgb(97, 97, 97);
+    position: absolute;
+}
+
+.question-text{
+    margin-top: 30px;
+    position: relative;
+}
+
 .question-view{
     display:flex;
     padding: 16px;
