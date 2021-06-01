@@ -36,7 +36,7 @@ module.exports = {
         });
     },
 
-    readAllQuestions: async (topicId) => {
+   readAllQuestions: async (topicId) => {
         return new Promise((resolve, reject) => {
 
            const whereCondition = {
@@ -55,6 +55,34 @@ module.exports = {
                    resolve(result);
                }
            });
+
+        });
+    }
+    /* readAllQuestions: async (topicId) => {
+        return new Promise((resolve, reject) => {
+
+            const whereCondition = {
+                [questionConstants.topic_id] : topicId
+            };
+
+            const ListOfTables = [questionConstants.table_name,studentConstants.table_name];
+            const ListOfOnJoinCols = [questionConstants.student_id, studentConstants.student_id];
+
+            const selectQuestion = queryHelper.buildAssociatedInnerJoin(ListOfTables
+                , ListOfOnJoinCols
+                ,[[questionConstants.post_date_time,questionConstants.question,questionConstants.question_picture_url],[studentConstants.user_name]]
+                , true, [], whereCondition);
+
+            console.log(selectQuestion);
+
+            db.getConnection().query(selectQuestion, (err, result) => {
+                if (err){
+                    reject(err.message);
+                }
+                else{
+                    resolve(result);
+                }
+            });
 
         });
     }
