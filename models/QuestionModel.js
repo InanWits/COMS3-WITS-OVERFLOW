@@ -1,7 +1,7 @@
 const db = require('../utils/services/database');
-const studentConstants = require('../utils/constants/StudentConstants');
-const questionConstants = require('../utils/constants/QuestionConstants');
 
+const questionConstants = require('../utils/constants/QuestionConstants');
+const studentConstants = require('../utils/constants/StudentConstants');
 const queryHelper = require('../helpers/QueryHelper');
 
 
@@ -36,41 +36,17 @@ module.exports = {
         });
     },
 
-   readAllQuestions: async (topicId) => {
-        return new Promise((resolve, reject) => {
 
-           const whereCondition = {
-               [questionConstants.topic_id] : topicId
-           };
-
-           const selectQuestion = queryHelper.buildSelectQuery(questionConstants.table_name, [], whereCondition);
-
-           console.log(selectQuestion);
-
-           db.getConnection().query(selectQuestion, (err, result) => {
-               if (err){
-                   reject(err.message);
-               }
-               else{
-                   resolve(result);
-               }
-           });
-
-        });
-    }
-    /* readAllQuestions: async (topicId) => {
+    readAllQuestions: async (topicId) => {
         return new Promise((resolve, reject) => {
 
             const whereCondition = {
                 [questionConstants.topic_id] : topicId
             };
 
-            const ListOfTables = [questionConstants.table_name,studentConstants.table_name];
-            const ListOfOnJoinCols = [questionConstants.student_id, studentConstants.student_id];
-
-            const selectQuestion = queryHelper.buildAssociatedInnerJoin(ListOfTables
-                , ListOfOnJoinCols
-                ,[[questionConstants.post_date_time,questionConstants.question,questionConstants.question_picture_url],[studentConstants.user_name]]
+            const selectQuestion = queryHelper.buildAssociatedInnerJoin([questionConstants.table_name,studentConstants.table_name]
+                , [questionConstants.student_id, studentConstants.student_id]
+                ,[[questionConstants.question_id, questionConstants.topic_id, questionConstants.post_date_time,questionConstants.question,questionConstants.question_picture_url],[studentConstants.user_name]]
                 , true, [], whereCondition);
 
             console.log(selectQuestion);
@@ -83,7 +59,6 @@ module.exports = {
                     resolve(result);
                 }
             });
-
         });
-    } */
+    }
 }

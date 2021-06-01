@@ -76,8 +76,7 @@ module.exports = {
             };
 
             const getStudent = queryHelper.buildSelectQuery(studentConstants.table_name,
-                [studentConstants.student_id, studentConstants.first_name, studentConstants.last_name, studentConstants.password], whereConditions);
-
+                [studentConstants.student_id, studentConstants.first_name, studentConstants.last_name, studentConstants.user_name, studentConstants.password], whereConditions);
 
 
             console.log(getStudent);

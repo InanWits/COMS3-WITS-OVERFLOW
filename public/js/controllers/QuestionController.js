@@ -14,7 +14,37 @@ $(window).on('load', () => {
             readTopicQuestions(topicId).then((questions) => {
                 questions.forEach((question) => {
                     const questionItem = $('<div class="question-view">');
-                    questionItem.text(question.question);
+                    const divPart1 = $('<div class="div-part1">');
+                    const divPart2 = $('<div class="div-part2">');
+
+                    questionItem.append(divPart1);
+                    questionItem.append(divPart2);
+
+                    const questionDetails = $('<div class="question-details">');
+                    const questionText = $('<div class="question-text">');
+                    divPart1.append(questionDetails);
+                    divPart1.append(questionText);
+
+                    questionDetails.text(`Created by: ${question.user_name} at ${question.post_date_time}`);
+                    questionText.text(question.question);
+
+                    let attachmentUrl = question.question_picture_url;
+                    if (attachmentUrl.trim() !== ""){
+                        let splittedPath = attachmentUrl.split("/");
+                        attachmentUrl = BASE_URL + splittedPath[splittedPath.length - 1];
+
+                        const aTag = $(`<a href="${attachmentUrl}" style="display: block">`);
+
+                        if (attachmentUrl.endsWith("pdf")){
+                            aTag.text("PDF Attachment");
+                        }
+                        else{
+                            aTag.append($(`<img class="small-image" src="${attachmentUrl}" alt="attachment image">`));
+                        }
+
+                        divPart2.append(aTag);
+                    }
+
                     questionsHolder.append(questionItem);
 
                     //add click listener to question, to open the QuestionViewPage

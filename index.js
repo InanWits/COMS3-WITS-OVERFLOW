@@ -27,8 +27,9 @@ const app = express();
 
 //config server to allow json as request inputs
 app.use(express.json());
-//make the public folder have public access
+//make the public and Image folder have public access
 app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '/Image')));
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
