@@ -102,11 +102,9 @@ module.exports = {
                                 reject("Authorization failed due to bad credentials");
                             }
                         });
-
                     }
                 }
             });
         });
     }
-
 };
