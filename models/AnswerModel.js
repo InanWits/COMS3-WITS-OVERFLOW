@@ -1,5 +1,5 @@
 const db = require('../utils/services/database');
-
+const studentConstants = require('../utils/constants/StudentConstants')
 const answerConstants = require('../utils/constants/AnswerConstants');
 
 const queryHelper = require('../helpers/QueryHelper');
@@ -45,11 +45,15 @@ module.exports = {
                 [answerConstants.question_id] : questionId
             };
 
-            const selectAnswers = queryHelper.buildSelectQuery(answerConstants.table_name, [], whereCondition);
+            const getAnswers = queryHelper.buildAssociatedInnerJoin([answerConstants.table_name,studentConstants.table_name]
+                , [answerConstants.student_id, answerConstants.student_id]
+                ,[[answerConstants.question_id, answerConstants.answer_id, answerConstants.post_date_time,answerConstants.answer,answerConstants.answer_picture_url],[studentConstants.user_name]]
+                , true, [], whereCondition);
 
-            console.log(selectAnswers);
 
-            db.getConnection().query(selectAnswers, (err, result) => {
+            console.log(getAnswers);
+
+            db.getConnection().query(getAnswers, (err, result) => {
                 if (err){
                     reject(err.message);
                 }
