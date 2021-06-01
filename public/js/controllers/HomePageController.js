@@ -50,11 +50,20 @@ $(window).on('load', () => {
         //console.log(targetUrl);
         //open the target page in the iFrame
         iFrame.attr('src', targetUrl);
-        
+
         var x = document.getElementById("animated-title") // to hide the homepage text after clicking aside item button
         x.style.display = "none";
     });
 
+    const displayStudentNames = () => {
+        const nameDisplay = $("#top-right-label");
+        const fName = localStorage.getItem(KEY_STUDENT_F_NAME);
+        const lName = localStorage.getItem(KEY_STUDENT_L_NAME);
+
+        nameDisplay.text(`${fName} ${lName}`);
+    };
+
+    displayStudentNames();
     //select the first item by default
     //asideItems[0].click(); unselected to show starting homepage text
 
