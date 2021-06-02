@@ -37,13 +37,14 @@
 <!-- created new divs for proper positioning on webpage for header-->
 <header>
     <div class="img-arrow"><a href="Questions.html"><img id="nav-button" src="../img/ic_arrow_back.svg" alt=""></a></div>
-    <div class="question-details"><p>Created by: username at: date and time</p></div>
+    <div id="question-info" class="question-details"><p>Created by: username at: date and time</p></div>
     <div class="question-text"><p id="question-text">the truth is truthful when it is not a lie</p></div>
+    <div id="attachment-holder" style="display: block"></div>
     <button class="answer-button" id="answer-button" onclick="openNav()">Click to answer</button>
 
 </header>
 
-<section> 
+<section>
   <p class="answers-label">Answers</p>
 
   <!--please check this, new code for the answer container-->
@@ -70,9 +71,9 @@
   -->
 
     <div class="option-selection">
-      <p>Know the answer? Click the button on the top right</p> 
+      <p>Know the answer? Click the button on the top right</p>
       <!--<div id="create-answer">Post Answer</div><br>-->
-      
+
     </div>
 
   </div>
@@ -87,58 +88,58 @@
     <div class="toolbar">
       <ul class="tool-list">
         <li class="tool">
-          <button 
-            type="button" 
+          <button
+            type="button"
             data-command='justifyLeft'
             class="tool--btn">
             <i class=' fas fa-align-left'></i>
           </button>
         </li>
         <li class="tool">
-          <button 
-            type="button" 
-            data-command='justifyCenter' 
+          <button
+            type="button"
+            data-command='justifyCenter'
             class="tool--btn">
             <i class=' fas fa-align-center'></i>
           </button>
         </li>
         <li class="tool">
-          <button 
-            type="button" 
-            data-command="bold" 
+          <button
+            type="button"
+            data-command="bold"
             class="tool--btn">
             <i class=' fas fa-bold'></i>
           </button>
         </li>
         <li class="tool">
-          <button 
-            type="button" 
+          <button
+            type="button"
             data-command="italic"
             class="tool--btn">
             <i class=' fas fa-italic'></i>
           </button>
         </li>
         <li class="tool">
-          <button 
-            type="button" 
+          <button
+            type="button"
             data-command="underline"
             class="tool--btn">
             <i class=' fas fa-underline'></i>
           </button>
         </li>
-          <button 
-            type="button" 
-            data-command="createlink" 
+          <button
+            type="button"
+            data-command="createlink"
             class="tool--btn">
             <i class=' fas fa-link'></i>
           </button>
         </li>
       </ul>
     </div>
-    
+
 
     <div id="output" contenteditable="true"></div>
-    <br>  
+    <br>
 
     <script> //javascript code to use rich text functionality/listener onto the div
       let output = document.getElementById('output');
@@ -168,7 +169,7 @@
         <!--<input type="submit">-->
       </form>
 
-      <!-- 
+      <!--
         javascript code to validate upload file cause the user can upload different types of files not accepted for our system
       -->
       <script>
@@ -177,12 +178,12 @@
           const file: File = imageInput.files[0];
           var pattern = /image-*/;
           var patternpdf = /.pdf/
-    
+
           if (!file.type.match(pattern) || !file.type.match(patternpdf)) {
             alert('Invalid format');
             return;
           }
-    
+
           // here for resizing purposes
 
         }
@@ -215,7 +216,7 @@
         code ends for the upload
       -->
       <br>
-      <div id="create-answer">Post Answer</div>  
+      <div id="create-answer">Post Answer</div>
 
 
   </div>
