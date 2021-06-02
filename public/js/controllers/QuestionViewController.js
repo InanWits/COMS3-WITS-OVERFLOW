@@ -40,7 +40,25 @@ $(window).on('load', () => {
         }
     })
 
+    questionInfo.text(`Created by: ${question.user_name} at ${question.post_date_time}`);
     questionLbl.text(question.question);
+    //display attachment
+    let attachmentUrl = question.question_picture_url;
+    if (attachmentUrl.trim() !== ""){
+        let splittedPath = attachmentUrl.split("/");
+        attachmentUrl = BASE_URL + splittedPath[splittedPath.length - 1];
+
+        const aTag = $(`<a href="${attachmentUrl}" style="display: block">`);
+
+        if (attachmentUrl.endsWith("pdf")){
+            aTag.text("PDF Attachment");
+        }
+        else{
+            aTag.append($(`<img class="small-image" src="${attachmentUrl}" alt="attachment image">`));
+        }
+
+        attachmentHolder.append(aTag);
+    }
 
     const vote = (answerId, voteVal) => {
         const answerData = {
