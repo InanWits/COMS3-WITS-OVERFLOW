@@ -255,7 +255,7 @@ margin-top: 30px;
     transition: 0.5s;
 }
 
-#small-image{
+.small-image{
     margin-left: 100px;
     margin-right:100px;
     height: 100px;

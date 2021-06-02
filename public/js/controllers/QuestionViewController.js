@@ -3,8 +3,10 @@ $(window).on('load', () => {
     let attachment;
     let answerData;
 
+    const attachmentHolder = $("#attachment-holder");
     const answerHolder = $("#answer-container");
     const questionLbl = $("#question-text");
+    const questionInfo = $("#question-info");
     const answerInput = $("#output");
     const postAnswerButton = $("#create-answer");
     const inputAttachment = $("#myFile");
@@ -40,7 +42,25 @@ $(window).on('load', () => {
         }
     })
 
+    questionInfo.text(`Created by: ${question.user_name} at ${question.post_date_time}`);
     questionLbl.text(question.question);
+    //display attachment
+    let attachmentUrl = question.question_picture_url;
+    if (attachmentUrl.trim() !== ""){
+        let splittedPath = attachmentUrl.split("/");
+        attachmentUrl = BASE_URL + splittedPath[splittedPath.length - 1];
+
+        const aTag = $(`<a href="${attachmentUrl}" style="display: block">`);
+
+        if (attachmentUrl.endsWith("pdf")){
+            aTag.text("PDF Attachment");
+        }
+        else{
+            aTag.append($(`<img class="small-image" src="${attachmentUrl}" alt="attachment image">`));
+        }
+
+        attachmentHolder.append(aTag);
+    }
 
     const vote = (answerId, voteVal) => {
         const answerData = {
@@ -58,25 +78,50 @@ $(window).on('load', () => {
 
     const addAnswerToContainer = (answer) => {
         const answerItem = $("<div class='answer-view'>");
-        answerItem.text(answer.answer);
+        const divPart1 = $("<div class='div-part1'>");
+        const divPart2 = $("<div class='div-part2'>");
+        const divPart3 = $("<div class='div-part3'>");
 
+        answerItem.append(divPart1);
+        answerItem.append(divPart2);
+        answerItem.append(divPart3);
 
-        const div = $("<div>");
+        const answerDetails = $('<div class="answer-details">');
+        const answerText = $('<div class="answer-text">');
+        divPart1.append(answerDetails);
+        divPart1.append(answerText);
+
+        answerDetails.text(`Created by: ${answer.user_name} at ${answer.post_date_time}`);
+        answerText.text(answer.answer);
+
+        let attachmentUrl = answer.answer_picture_url;
+        if (attachmentUrl.trim() !== ""){
+            let splittedPath = attachmentUrl.split("/");
+            attachmentUrl = BASE_URL + splittedPath[splittedPath.length - 1];
+
+            const aTag = $(`<a href="${attachmentUrl}" style="display: block">`);
+
+            if (attachmentUrl.endsWith("pdf")){
+                aTag.text("PDF Attachment");
+            }
+            else{
+                aTag.append($(`<img class="small-image" src="${attachmentUrl}" alt="attachment image">`));
+            }
+
+            divPart2.append(aTag);
+        }
+
         const label = $("<label class='total'>");
         const upVoteBtn = $("<button class='up'>");
         const downVoteBtn = $("<button class='down'>");
 
+        label.text("Total");
         upVoteBtn.text("up vote");
         downVoteBtn.text("down vote");
 
-        div.append(label);
-        div.append(upVoteBtn);
-        div.append(downVoteBtn);
-
-        answerItem.append(div);
-
-        //add answer to the top of the list
-        answerHolder.prepend(answerItem);
+        divPart3.append(label);
+        divPart3.append(upVoteBtn);
+        divPart3.append(downVoteBtn);
 
         upVoteBtn.on('click', () => {
             vote(answer.answer_id, 1);
@@ -85,6 +130,8 @@ $(window).on('load', () => {
         downVoteBtn.on('click', () => {
             vote(answer.answer_id, -1);
         });
+
+        answerHolder.prepend(answerItem);
     };
 
     readQuestionAnswers(question.question_id).then((answers) => {
