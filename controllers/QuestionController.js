@@ -79,4 +79,14 @@ router.get(`/:${questionConstants.question_id}/answers`, (req, res) => {
         (err) => responseHandler.sendNotAcceptableResponse(err, res)
     );
 });
+/*
+router.get(`/:${rateConstants.answer_id}/total`, (req, res) => {
+    const answerID = req.params[rateConstants.answer_id];
+    answerModel.TotalVote(answerID).then(
+        (response) => responseHandler.sendResponseOkay(response, res),
+        (err) => responseHandler.sendNotAcceptableResponse(err, res)
+    );
+});
+
+ */
 module.exports = router;
