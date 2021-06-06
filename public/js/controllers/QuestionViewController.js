@@ -115,7 +115,7 @@ $(window).on('load', () => {
         const upVoteBtn = $("<button class='up'>");
         const downVoteBtn = $("<button class='down'>");
 
-        label.text("Total");
+        label.text(answer.total_votes);
         upVoteBtn.text("up vote");
         downVoteBtn.text("down vote");
 
