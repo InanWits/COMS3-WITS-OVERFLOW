@@ -43,7 +43,7 @@ module.exports = {
             const whereCondition = {
                 [questionConstants.topic_id] : topicId
             };
-
+            
             const selectQuestion = queryHelper.buildAssociatedInnerJoin([questionConstants.table_name,studentConstants.table_name]
                 , [questionConstants.student_id, studentConstants.student_id]
                 ,[[questionConstants.question_id, questionConstants.topic_id, questionConstants.post_date_time,questionConstants.question,questionConstants.question_picture_url],[studentConstants.user_name]]
