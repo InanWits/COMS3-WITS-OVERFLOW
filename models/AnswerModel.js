@@ -45,7 +45,8 @@ module.exports = {
                 [answerConstants.question_id] : questionId
             };
 
-            const getAnswers = queryHelper.buildAssociatedInnerJoin([answerConstants.table_name,studentConstants.table_name]
+            const getAnswers = queryHelper.buildAssociatedInnerJoin(
+                [answerConstants.table_name,studentConstants.table_name]
                 , [answerConstants.student_id, answerConstants.student_id]
                 ,[[answerConstants.question_id, answerConstants.answer_id, answerConstants.post_date_time,answerConstants.answer,answerConstants.answer_picture_url],[studentConstants.user_name]]
                 , true, [], whereCondition);
@@ -58,8 +59,35 @@ module.exports = {
                     reject(err.message);
                 }
                 else{
-                    resolve(result);
+                    module.exports.getAnswerVote(0, result).then(result => {
+                        resolve(result);
+                    });
                 }
+            });
+        });
+    },
+
+    getAnswerVote: async (i, result) => {
+        return new Promise((resolve) => {
+            if (i === result.length) resolve(result);
+
+            const answer = result[i];
+
+            db.getConnection().query(`select count(*) as total from Rate where answer_id = ${answer.answer_id}`, (err, rslt) => {
+                let totalVotes;
+
+                if (rslt.length === 0){
+                    totalVotes = 0;
+                }
+                else{
+                    totalVotes = rslt[0].total;
+                }
+
+                answer["total_votes"] = totalVotes;
+                result[i] = answer;
+                i++;
+
+                resolve(module.exports.getAnswerVote(i, result));
             });
         });
     }

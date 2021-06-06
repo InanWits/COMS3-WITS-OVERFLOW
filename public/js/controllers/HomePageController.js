@@ -56,7 +56,7 @@ $(window).on('load', () => {
     });
 
     const displayStudentNames = () => {
-        const nameDisplay = $("#top-right-label");
+        const nameDisplay = $("#user-name");
         const fName = localStorage.getItem(KEY_STUDENT_F_NAME);
         const lName = localStorage.getItem(KEY_STUDENT_L_NAME);
 
@@ -89,5 +89,11 @@ $(window).on('load', () => {
     //have the navigation open by default
     openNav();
 
+
+    $('#logout').on("click", () => {
+        localStorage.clear();
+        sessionStorage.clear();
+        window.location.href = '../index.html';
+    });
 
 });

@@ -62,7 +62,7 @@ $(window).on('load', () => {
         attachmentHolder.append(aTag);
     }
 
-    const vote = (answerId, voteVal) => {
+    const vote = (answerId, voteVal, label) => {
         const answerData = {
             "student_id" : localStorage.getItem(KEY_STUDENT_ID),
             "rate" : voteVal
@@ -70,6 +70,8 @@ $(window).on('load', () => {
 
         rateAnswer(answerId, answerData).then(
             msg => {
+                let totalVotes = parseInt(label.text()) + 1;
+                label.text(totalVotes.toString());
                 alert(msg);
             },
             err => alert(err.responseText)
@@ -115,7 +117,7 @@ $(window).on('load', () => {
         const upVoteBtn = $("<button class='up'>");
         const downVoteBtn = $("<button class='down'>");
 
-        label.text("Total");
+        label.text(answer.total_votes);
         upVoteBtn.text("up vote");
         downVoteBtn.text("down vote");
 
@@ -124,11 +126,11 @@ $(window).on('load', () => {
         divPart3.append(downVoteBtn);
 
         upVoteBtn.on('click', () => {
-            vote(answer.answer_id, 1);
+            vote(answer.answer_id, 1, label);
         });
 
         downVoteBtn.on('click', () => {
-            vote(answer.answer_id, -1);
+            vote(answer.answer_id, -1, label);
         });
 
         answerHolder.prepend(answerItem);
