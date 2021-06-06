@@ -64,4 +64,23 @@ module.exports = {
         });
     }
 
+   /* TotalVote: async(answerID) =>{
+        return new Promise((resolve, reject) => {
+            const whereCondition = {
+                [answerConstants.answer_id] : answerID
+            };
+            let count = `SELECT COUNT(*) FROM ${rateConstants.table_name} WHERE ${rateConstants.answer_id} = ${answerConstants.answer_id} AND ${rateConstants.rate} = 1`;
+            console.log(count);
+
+            db.getConnection().query(count, (err, result) => {
+                if (err) {
+                    reject(err.message);
+                } else {
+                    resolve(result);
+                }
+            });
+        });
+    }
+
+    */
 }
