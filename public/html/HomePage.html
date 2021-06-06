@@ -16,6 +16,68 @@
             display: flex;
             flex-direction: column;
         }
+
+        .container{
+            position: absolute;
+            margin-right: 50px;
+            right: 0;
+        }
+
+        #top-right-label{
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+        }
+
+        a {
+            color: rgb(0, 0, 0);
+        }
+
+        #logout{
+            margin-left: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        #logout:hover{
+            transform: scale(1.2);
+        }
+
+
+        /*.container {
+            margin-left: 0px;
+            background: #fff;
+            height: 30px;
+            border-radius: 30px;
+            padding: 10px 10px;
+            padding-left: 0px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.8s;
+            box-shadow: 0 0 0px 0 rgba(0, 0, 0, 0.4);
+        }
+        .container:hover .input {
+            width: 400px;
+            height: 30px;
+            padding: 10px 10px;
+            padding-left: 10px;
+            margin-left: 20px;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 30px;
+            box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.4);
+        }
+        .container .input {
+            background: transparent;
+            padding-left: 0px;
+            border: none;
+            outline: none;
+            width: 0px;
+            font-weight: 500;
+            font-size: 16px;
+            transition: 0.8s;
+        }*/
     </style>
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -37,7 +99,7 @@
     <header>
         <!--<img id="nav-button" src="../img/ic_menu_nav.svg" alt="">
         REMOVAL OF THIS BUTTON TO PREVENT CLOSING OF SIDE NAV BAR
-        
+
         <img id="search-button" src="../img/ic_search.svg" alt="">
         REMOVAL OF THIS HERE PLACED INSIDE CONTAINER BELOW AND ASLO FOR THE ANIMATION FOR SEARCH BUTTON BELOW
     -->
@@ -45,68 +107,19 @@
     <div class="container">
         <!--<input type="text" name="search" placeholder="Search..." class="input" />-->
         <div id="top-right-label">
-            <p>Username displayed here</p>
-            <p><b><a href="../index.html" target="_self">Logout</a></b></p> <!--logout hyperlink, the target _self means that the same tab (not new tab) will change to sign in page-->
+
+            <p id="user-name" style="display: inline-block">Username displayed here</p>
+            <img id="logout" src="../img/ic_logout.svg" alt="Logout">
         </div>
         <!--<a href="#" class="btn">
             <img id="search-button" src="../img/ic_search.svg" alt="">
         </a>-->
       </div>
 
-       <style>
-            .container{
-                position: absolute;
-                margin-right: 50px;
-                right: 0;
-            }
-            #top-right-label{
-                justify-content: space-between;
-                width: 250px;
-                display: flex;
-                margin-right: 10px;
-            }
-           
-           a {
-                color: rgb(0, 0, 0);
-           }
-            /*.container {
-                margin-left: 0px;
-                background: #fff;
-                height: 30px;
-                border-radius: 30px;
-                padding: 10px 10px;
-                padding-left: 0px;
-                display: flex;
-                align-items: center;
-                cursor: pointer;
-                transition: 0.8s;
-                box-shadow: 0 0 0px 0 rgba(0, 0, 0, 0.4);
-            }
-            .container:hover .input {
-                width: 400px;
-                height: 30px;
-                padding: 10px 10px;
-                padding-left: 10px;
-                margin-left: 20px;
-                align-items: center;
-                cursor: pointer;
-                border-radius: 30px;
-                box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.4);
-            }
-            .container .input {
-                background: transparent;
-                padding-left: 0px;
-                border: none;
-                outline: none;
-                width: 0px;
-                font-weight: 500;
-                font-size: 16px;
-                transition: 0.8s;
-            }*/
-        </style>
+
 
     </header>
-    
+
     <div id="animated-title">
         <div class="text-top">
           <div>
@@ -126,10 +139,10 @@
         <!--<div id="aside-back">
             <img class="icon" src="../img/ic_chevron_left_black.svg" alt="">
         </div>
-        
+
         REMOVAL OF THIS BUTTON TO PREVENT CLOSING OF SIDE NAV BAR
 
-        --> 
+        -->
 
         <div class="aside-item" data-target-url="html/Questions.html">
             <img class="icon" src="../img/ic_questions.svg" alt=""> <p>Questions</p>
@@ -138,7 +151,6 @@
         <div class="aside-item" data-target-url="html/AskQuestion.html">
             <img class="icon" src="../img/ic_ask_questions.svg" alt=""> <p>Ask Question</p>
         </div>
-
     </aside>
 
     <div class="bottom-container"></div>
