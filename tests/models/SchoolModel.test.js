@@ -21,10 +21,3 @@ test("test_read_school", () => {
     })
 });
 
-
-/*
-
-afterAll(async () => {
-    await database.getConnection().end();
-});*/
-
