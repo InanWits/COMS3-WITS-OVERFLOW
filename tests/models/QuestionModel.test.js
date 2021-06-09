@@ -56,6 +56,5 @@ test("readAllQuestions_Available", () => {
     QuestionModel.readAllQuestions().then((result) => {
 
         expect(result).not.toBe(null);
-
     })
 });
