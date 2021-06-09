@@ -22,7 +22,7 @@ beforeAll(async (done) => {
 afterAll(async () => {
     await database.getConnection().end();
 });
-
+/*
 test("UpVoteDownVoteAnswer_validDataAsInput_votedSuccessfully", () => {
     const voteData = {
         [rateConstants.student_id] : 1234,
@@ -36,7 +36,8 @@ test("UpVoteDownVoteAnswer_validDataAsInput_votedSuccessfully", () => {
             expect(err).not.toBe(null);
         });
 });
-
+*/
+/*
 test("UpVoteDownVoteAnswer_InvalidDataAsInput_votedSuccessfully", () => {
     const voteData = {
         [rateConstants.student_id] : 1234,
@@ -49,8 +50,9 @@ test("UpVoteDownVoteAnswer_InvalidDataAsInput_votedSuccessfully", () => {
         (err) => {
             expect(err).not.toBe(null);
         });
-});
+}); */
 
+/*
 test("UpdateVotedAnswer_validDataAsInput_updatedSuccessfully", () => {
     const voteData = {
         [rateConstants.student_id] : 123,
@@ -63,4 +65,4 @@ test("UpdateVotedAnswer_validDataAsInput_updatedSuccessfully", () => {
         (err) => {
             expect(err).not.toBe(null);
         });
-});
+}); */
