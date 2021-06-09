@@ -32,8 +32,8 @@ test("insertQuestion_validDataAsInput_questionInserted", () => {
     };
 
     QuestionModel.insertQuestion(questionData).then(
-        (Question_id) => {
-            expect(Question_id).toBeGreaterThan(0);
+        (question_id) => {
+            expect(question_id).toBeGreaterThan(0);
         });
 });
 
@@ -53,7 +53,7 @@ test("insertQuestion_invalidDataAsInput_QuestionInsertFailed", () => {
 });
 
 test("readAllQuestions_Available", () => {
-    QuestionModel.readAllQuestions().then((result) => {
+    QuestionModel.readAllQuestions(1).then((result) => {
 
         expect(result).not.toBe(null);
 
