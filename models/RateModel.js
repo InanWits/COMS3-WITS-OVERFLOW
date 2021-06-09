@@ -13,6 +13,7 @@ module.exports = {
      *   Rate : "rate ?"
      *}
      * */
+    /*
     insertRate: async (RateJsonObject) => {
 
         return new Promise((resolve, reject) => {
@@ -31,7 +32,7 @@ module.exports = {
                 }
             });
         });
-    },
+    }, */
     vote: async (data) =>{
         return new Promise((resolve, reject) => {
 
