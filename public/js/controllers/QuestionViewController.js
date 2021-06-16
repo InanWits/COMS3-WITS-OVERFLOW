@@ -42,7 +42,10 @@ $(window).on('load', () => {
         }
     })
 
-    questionInfo.text(`Created by: ${question.user_name} at ${question.post_date_time}`);
+    let date = question.post_date_time;
+    date = date.replace("T", " ");
+    date = date.slice(0, 16);
+    questionInfo.text(`Created by: ${question.user_name} at ${date}`);
     questionLbl.text(question.question);
     //display attachment
     let attachmentUrl = question.question_picture_url;
@@ -93,7 +96,10 @@ $(window).on('load', () => {
         divPart1.append(answerDetails);
         divPart1.append(answerText);
 
-        answerDetails.text(`Created by: ${answer.user_name} at ${answer.post_date_time}`);
+        let date = answer.post_date_time;
+        date = date.replace("T", " ");
+        date = date.slice(0, 16);
+        answerDetails.text(`Created by: ${answer.user_name} at ${date}`);
         answerText.text(answer.answer);
 
         let attachmentUrl = answer.answer_picture_url;

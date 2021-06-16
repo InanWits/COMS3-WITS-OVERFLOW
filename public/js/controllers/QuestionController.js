@@ -25,7 +25,11 @@ $(window).on('load', () => {
                     divPart1.append(questionDetails);
                     divPart1.append(questionText);
 
-                    questionDetails.text(`Created by: ${question.user_name} at ${question.post_date_time}`);
+                    let date = question.post_date_time;
+                    date = date.replace("T", " ");
+                    date = date.slice(0, 16);
+
+                    questionDetails.text(`Created by: ${question.user_name} at ${date}`);
                     questionText.text(question.question);
 
                     let attachmentUrl = question.question_picture_url;
