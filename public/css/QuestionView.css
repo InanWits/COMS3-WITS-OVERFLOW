@@ -1,6 +1,7 @@
 #question-text{
     color: var(--dark-primary-color);
-    padding: 16px;
+    margin-top: 24px;
+    margin-left: 16px;
     text-wrap: normal; /* i dont know the purpose of this my IDE does not accept this type of property for wrapping*/
     font-size: 20px;
     font-weight: bold;
